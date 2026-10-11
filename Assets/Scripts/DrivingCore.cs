@@ -17,6 +17,11 @@ public sealed class DrivingCore : MonoBehaviour
     public Transform ControlledTarget => Voyage.Exploration.ExplorationSession.Instance != null && Voyage.Exploration.ExplorationSession.Instance.OnFoot
         ? Voyage.Exploration.ExplorationSession.Instance.Explorer.transform : Player != null ? Player.transform : null;
     public bool HudPaused { get; private set; }
+    public void SetPaused(bool paused)
+    {
+        HudPaused = paused;
+        Time.timeScale = paused ? 0f : 1f;
+    }
     public float HudTargetDistance { get { return 0f; } }
     public string HudObjective { get { return "DRIVE"; } }
     public string HudMode { get { return "4X4"; } }
@@ -136,8 +141,7 @@ public sealed class DrivingCore : MonoBehaviour
         if (Player == null || VoyageCommandConsole.IsOpen || VoyageCommandConsole.ConsumedInputThisFrame) return;
         if (!Voyage.Dialogue.CoBluesDialogue.InputModal && (ReadKeyDown(KeyCode.P) || (ReadKeyDown(KeyCode.Escape) && !Voyage.Dialogue.CoBluesDialogue.BlocksPause)))
         {
-            HudPaused = !HudPaused;
-            Time.timeScale = HudPaused ? 0f : 1f;
+            SetPaused(!HudPaused);
         }
         if (HudPaused) return;
         if (Voyage.Exploration.ExplorationSession.Instance != null && Voyage.Exploration.ExplorationSession.Instance.OnFoot) return;
