@@ -9,6 +9,13 @@ namespace Voyage.Exploration
         int line;
         public override void Interact(ExplorerPlayer player)
         {
+            var conversation = GetComponent<Voyage.Dialogue.CoBluesDialogue>();
+            if (conversation != null)
+            {
+                conversation.Begin(player);
+                base.Interact(player);
+                return;
+            }
             if (facePlayer)
             {
                 Vector3 direction = Vector3.ProjectOnPlane(player.transform.position-transform.position,Vector3.up);

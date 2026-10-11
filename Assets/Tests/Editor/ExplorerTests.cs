@@ -47,12 +47,17 @@ namespace Voyage.Tests.Editor
             actor.GetType().GetMethod("OnEnable",BindingFlags.Instance|BindingFlags.NonPublic).Invoke(actor,null);
             return npc;
         }
-        [Test] public void PrefabsHaveCapsulesAndSeparateRoles()
+        [Test] public void PrefabsHaveSkinnedCharactersAndSeparateCollisionRoles()
         {
             Assert.That(player.GetComponent<CharacterController>(),Is.Not.Null);
-            Assert.That(player.GetComponentInChildren<MeshFilter>().sharedMesh.name,Does.Contain("Capsule"));
+            Assert.That(player.transform.Find("Capsule visual"),Is.Null);
+            Assert.That(player.GetComponentsInChildren<SkinnedMeshRenderer>().Length,Is.EqualTo(6));
+            var animator=player.GetComponentInChildren<Animator>();
+            Assert.That(animator.runtimeAnimatorController,Is.Not.Null);
+            Assert.That(animator.applyRootMotion,Is.False);
             a=Npc(Vector3.right*4);Assert.That(a.GetComponent<CapsuleCollider>(),Is.Not.Null);
             Assert.That(a.GetComponent(TypeOf("NpcActor")),Is.Not.Null);
+            Assert.That(a.GetComponentsInChildren<SkinnedMeshRenderer>().Length,Is.EqualTo(6));
         }
 
         [Test] public void SprintMoveUsesHigherSpeed()
@@ -97,6 +102,21 @@ namespace Voyage.Tests.Editor
             Assert.That(player.transform.position.y,Is.GreaterThan(y+.03f));
             Vector3 start=player.transform.position;Call("Move",Vector2.one,false,.1f);
             Assert.That(Vector3.ProjectOnPlane(player.transform.position-start,Vector3.up).magnitude,Is.EqualTo(.45f).Within(.015f));
+        }
+
+        [Test] public void JumpSequenceOnlyChangesForAcceptedGroundedJumps()
+        {
+            var ground=GameObject.CreatePrimitive(PrimitiveType.Cube);ground.transform.SetParent(root.transform,false);
+            ground.transform.localPosition=new Vector3(0,-.5f,0);ground.transform.localScale=new Vector3(100,1,100);
+            Physics.SyncTransforms();
+            for(int i=0;i<10;i++)Call("Move",Vector2.zero,false,.02f);
+            int before=(int)Property("JumpSequence");
+            Call("Move",Vector2.up,true,.02f);
+            Assert.That(Property("JumpSequence"),Is.EqualTo(before+1));
+            Assert.That(Property("IsGrounded"),Is.EqualTo(false));
+            Assert.That((float)Property("VerticalSpeed"),Is.GreaterThan(0));
+            Call("Move",Vector2.up,true,.02f);
+            Assert.That(Property("JumpSequence"),Is.EqualTo(before+1));
         }
     }
 }

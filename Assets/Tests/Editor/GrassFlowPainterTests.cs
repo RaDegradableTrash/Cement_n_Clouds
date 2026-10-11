@@ -125,6 +125,349 @@ namespace Voyage.Tests.Editor
         }
 
         [Test]
+        public void WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea()
+        {
+            var window = ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            var prefab = Resources.Load<GameObject>("TerrainSystem/Horizon/TerrainHorizon");
+            Assert.That(prefab, Is.Not.Null);
+            var sourceMeshes = prefab.GetComponentsInChildren<MeshFilter>();
+            var originalMaterial = prefab.GetComponentInChildren<MeshRenderer>().sharedMaterial;
+            try
+            {
+                Call(window, "ShowAllTerrain");
+                var root = (GameObject)Get(window, "terrainOverview");
+                var previewMeshes = root.GetComponentsInChildren<MeshFilter>();
+                Assert.That(previewMeshes.Length, Is.EqualTo(sourceMeshes.Length));
+                Assert.That(previewMeshes.Length, Is.GreaterThan(1));
+                for (int i = 0; i < sourceMeshes.Length; i++)
+                    Assert.That(previewMeshes[i].sharedMesh, Is.SameAs(sourceMeshes[i].sharedMesh));
+                Assert.That(root.GetComponentsInChildren<Collider>().Length, Is.EqualTo(sourceMeshes.Length), "Every overview region must be directly paintable.");
+                Physics.SyncTransforms();
+                var pickMesh = previewMeshes[0];
+                var vertices = pickMesh.sharedMesh.vertices;
+                var triangles = pickMesh.sharedMesh.triangles;
+                Vector3 point = pickMesh.transform.TransformPoint((vertices[triangles[0]] + vertices[triangles[1]] + vertices[triangles[2]]) / 3f);
+                Assert.That(pickMesh.GetComponent<Collider>().Raycast(new Ray(point + Vector3.up * 10000f, Vector3.down), out _, 20000f),
+                    Is.True, "The hidden editor overview must accept brush rays, not merely display a collider component.");
+                Assert.That(Get(window, "overviewWeights"), Is.Not.Null);
+                Assert.That(root.GetComponentsInChildren<MonoBehaviour>(), Is.Empty);
+                Assert.That(root.hideFlags, Is.EqualTo(HideFlags.HideAndDontSave));
+                var bounds = (Bounds)Get(window, "overviewBounds");
+                Assert.That(bounds.size.x, Is.GreaterThan(6000f));
+                Assert.That(bounds.size.z, Is.GreaterThan(6000f));
+                Call(window, "ShowAllTerrain");
+                Assert.That(Get(window, "terrainOverview"), Is.SameAs(root), "Repeated clicks must not duplicate the whole map.");
+                Call(window, "ClearPatchPreview");
+                Assert.That(root != null, Is.True, "Changing the editable area must keep the whole map visible.");
+                Assert.That(ShaderUtil.ShaderHasError(Shader.Find("Hidden/Voyage/TerrainOverview")), Is.False);
+                Call(window, "ClearPreview");
+                Assert.That(root == null, Is.True);
+                Assert.That(prefab.GetComponentInChildren<MeshRenderer>().sharedMaterial, Is.SameAs(originalMaterial));
+                foreach (var filter in sourceMeshes) Assert.That(filter.sharedMesh != null, Is.True);
+            }
+            finally { Object.DestroyImmediate(window); }
+        }
+
+        [Test]
+        public void DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting()
+        {
+            var window = ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            try
+            {
+                var weights = new Texture2D(64,64,TextureFormat.RGBA32,false,true);
+                var roads = new Texture2D(64,64,TextureFormat.RGBA32,false,true);
+                var white = new Color[4096]; for (int i=0;i<white.Length;i++) white[i]=Color.white;
+                weights.SetPixels(white); roads.SetPixels(new Color[4096]);
+                Set(window,"overviewWeights",weights); Set(window,"overviewRoads",roads);
+                Set(window,"overviewBounds",new Bounds(new Vector3(16,0,16),new Vector3(32,1,32)));
+                Set(window,"radius",6f); Set(window,"opacity",1f); Set(window,"hardness",1f);
+                var pending=(System.Collections.IList)Get(Get(window,"session"),"strokes"); pending.Clear();
+                string[] before=AssetDatabase.FindAssets("t:GrassFlowPatch");
+                Set(window,"roadTool",true);
+                Call(window,"QueueStroke",new Vector3(8,0,16),new Vector3(24,0,16),1f);
+                Assert.That(roads.GetPixel(32,32).r,Is.GreaterThan(.99f));
+                Assert.That(weights.GetPixel(32,32).r,Is.LessThan(.01f));
+                Set(window,"roadTool",false);
+                Call(window,"QueueStroke",new Vector3(16,0,16),new Vector3(16,0,16),1f);
+                Assert.That(weights.GetPixel(32,32).r,Is.GreaterThan(.99f),"Grass can be painted back onto a road.");
+                Assert.That(roads.GetPixel(32,32).r,Is.GreaterThan(.99f),"Repainting grass must retain the dirt surface.");
+                Assert.That(Get(window,"terrainIndex"),Is.Null,"No terrain source should be opened during painting.");
+                Assert.That(((System.Collections.IDictionary)Get(window,"worldPatches")).Count,Is.Zero);
+                Assert.That(AssetDatabase.FindAssets("t:GrassFlowPatch"),Is.EquivalentTo(before));
+                Assert.That(pending.Count,Is.EqualTo(2));
+                Set(window,"roadTool",true);
+                Call(window,"QueueStroke",new Vector3(16,0,16),new Vector3(16,0,16),0f);
+                Assert.That(roads.GetPixel(32,32).r,Is.LessThan(.01f));
+                Assert.That(weights.GetPixel(32,32).r,Is.GreaterThan(.99f),"Road erasing leaves grass edits untouched.");
+                pending.Clear();
+            }
+            finally { Object.DestroyImmediate(window); }
+        }
+
+        [Test]
+        public void LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory()
+        {
+            var window=ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            try
+            {
+                var session=Get(window,"session");
+                var strokes=(System.Collections.IList)Get(session,"strokes"); strokes.Clear();
+                var removed=(System.Collections.IList)Get(session,"removed"); removed.Clear();
+                for(int i=0;i<3;i++)
+                {
+                    var stroke=Activator.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow+PaintStroke"));
+                    Set(stroke,"gesture",i==0 ? 1 : 2); strokes.Add(stroke);
+                }
+                Call(window,"UndoLastEdit");
+                Assert.That(strokes.Count,Is.EqualTo(1),"One drag may contain multiple mouse events.");
+                Assert.That(removed.Count,Is.EqualTo(1));
+                Assert.That(((System.Collections.IList)Get(removed[0],"strokes")).Count,Is.EqualTo(2));
+                Call(window,"RedoLastEdit"); Assert.That(strokes.Count,Is.EqualTo(3));
+                strokes.Clear(); removed.Clear();
+            }
+            finally { Object.DestroyImmediate(window); }
+        }
+
+        [Test]
+        public void AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord()
+        {
+            var type=Find("GrassFlow.Editor.TerrainPaintHistory");
+            string path="Assets/PaintHistoryTest-"+Guid.NewGuid().ToString("N")+".txt";
+            const string index="Library/VoyageTerrainPaintHistory/index.json";
+            string previous=File.Exists(index) ? File.ReadAllText(index) : null;
+            object batch=type.GetMethod("Begin").Invoke(null,new object[]{"test"});
+            string id=(string)Get(batch,"id");
+            try
+            {
+                // Isolate this test's history from the user's catalog.
+                Directory.CreateDirectory(Path.GetDirectoryName(index)); File.WriteAllText(index,"{\"batches\":[]}");
+                File.WriteAllText(path,"before"); AssetDatabase.ImportAsset(path);
+                type.GetMethod("CaptureBefore").Invoke(null,new[]{batch,(object)path});
+                File.WriteAllText(path,"after"); AssetDatabase.ImportAsset(path);
+                type.GetMethod("Commit").Invoke(null,new[]{batch});
+                Assert.That(type.GetMethod("UndoLast").Invoke(null,null),Is.EqualTo(true));
+                Assert.That(File.ReadAllText(path),Is.EqualTo("before"));
+                var entries=(System.Collections.IList)type.GetProperty("Entries").GetValue(null);
+                Assert.That(entries.Count,Is.EqualTo(1)); Assert.That(Get(entries[0],"active"),Is.EqualTo(false));
+                Assert.That(type.GetMethod("RedoLast").Invoke(null,null),Is.EqualTo(true));
+                Assert.That(File.ReadAllText(path),Is.EqualTo("after"));
+            }
+            finally
+            {
+                AssetDatabase.DeleteAsset(path);
+                if(previous==null) File.Delete(index); else File.WriteAllText(index,previous);
+                string folder="Library/VoyageTerrainPaintHistory/"+id;
+                foreach(string file in Directory.GetFiles(folder)) File.Delete(file);
+                Directory.Delete(folder);
+            }
+        }
+
+        [Test]
+        public void AppliedRoadClearsGrassButLaterGrassStrokeWins()
+        {
+            var window=ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            var index=ScriptableObject.CreateInstance(Find("Voyage.TerrainSystem.TerrainTileIndex"));
+            var settings=ScriptableObject.CreateInstance(Find("Voyage.TerrainSystem.TerrainChunkSettings"));
+            var mesh=Surface(); var patch=Patch(mesh);
+            try
+            {
+                Set(settings,"tileSize",16f); Set(index,"settings",settings); Set(window,"terrainIndex",index);
+                object record=Activator.CreateInstance(Find("Voyage.TerrainSystem.TerrainTileRecord"));
+                Set(record,"coordinate",Vector2Int.zero); ((System.Collections.IList)Get(index,"tiles")).Add(record);
+                ((System.Collections.IDictionary)Get(window,"worldPatches")).Add(Vector2Int.zero,patch);
+                object stroke=Activator.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow+PaintStroke"));
+                Set(stroke,"from",new Vector3(8,0,8)); Set(stroke,"to",new Vector3(8,0,8));
+                Set(stroke,"radius",4f); Set(stroke,"strength",1f); Set(stroke,"hardness",1f); Set(stroke,"target",1f); Set(stroke,"road",true);
+                Call(window,"ApplyGrassEdit",stroke);
+                var density=(Texture2D)Get(patch,"density");
+                Assert.That(density.GetPixel(128,128).r,Is.LessThan(.01f));
+                Set(stroke,"road",false); Call(window,"ApplyGrassEdit",stroke);
+                Assert.That(density.GetPixel(128,128).r,Is.GreaterThan(.99f));
+                Set(stroke,"road",true); Set(stroke,"target",0f); Call(window,"ApplyGrassEdit",stroke);
+                Assert.That(density.GetPixel(128,128).r,Is.GreaterThan(.99f));
+            }
+            finally
+            {
+                Undo.ClearUndo((Object)Get(patch,"density")); Object.DestroyImmediate(window);
+                Object.DestroyImmediate(index); Object.DestroyImmediate(settings); DeletePatch(patch); Object.DestroyImmediate(mesh);
+            }
+        }
+
+        [UnityEngine.TestTools.UnityTest]
+        public System.Collections.IEnumerator RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt()
+        {
+            var shader=Shader.Find("Voyage/Terrain/Stylized");
+            bool asyncCompilation=ShaderUtil.allowAsyncCompilation; ShaderUtil.allowAsyncCompilation=false;
+            var oldPipeline=UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline;
+            var oldQualityPipeline=QualitySettings.renderPipeline;
+            var pipeline=AssetDatabase.LoadAssetAtPath<UnityEngine.Rendering.RenderPipelineAsset>("Assets/Settings/PC_RPAsset.asset");
+            UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline=pipeline; QualitySettings.renderPipeline=pipeline;
+            var mesh=Surface(); var material=new Material(shader);
+            ShaderUtil.CompilePass(material,0,true);
+            mesh.RecalculateNormals();
+            var map=ScriptableObject.CreateInstance(Find("Voyage.TerrainSystem.TerrainRoadMap"));
+            var mask=new Texture2D(2,2,TextureFormat.RGBA32,false,true);
+            var target=new RenderTexture(64,64,24,RenderTextureFormat.ARGB32);
+            var image=new Texture2D(64,64,TextureFormat.RGBA32,false,true);
+            var previous=RenderTexture.active;
+            var terrainObject=new GameObject("Road surface render test");
+            terrainObject.AddComponent<MeshFilter>().sharedMesh=mesh;
+            terrainObject.AddComponent<MeshRenderer>().sharedMaterial=material;
+            var cameraObject=new GameObject("Road surface test camera"); var camera=cameraObject.AddComponent<Camera>();
+            camera.transform.SetPositionAndRotation(new Vector3(8,20,8),Quaternion.LookRotation(Vector3.down,Vector3.forward));
+            camera.orthographic=true; camera.orthographicSize=8; camera.nearClipPlane=.1f; camera.farClipPlane=40;
+            camera.cullingMask=~0; camera.clearFlags=CameraClearFlags.SolidColor; camera.backgroundColor=Color.magenta; camera.targetTexture=target;
+            var lightObject=new GameObject("Road test sunlight"); var light=lightObject.AddComponent<Light>();
+            light.type=LightType.Directional; light.color=Color.white; light.intensity=1; light.transform.rotation=Quaternion.Euler(90,0,0);
+            Vector4 oldView=Shader.GetGlobalVector("_VoyageTerrainView");
+            Color oldColor=Shader.GetGlobalColor("_VoyageGrassEnvironmentColor"); float oldLight=Shader.GetGlobalFloat("_VoyageGrassEnvironmentLight");
+            try
+            {
+                mask.SetPixels(new[] {Color.white,Color.white,Color.white,Color.white}); mask.Apply(false);
+                Set(map,"mask",mask); Set(map,"bounds",new Vector4(0,0,16,16)); Call(map,"Bind",map);
+                Shader.SetGlobalVector("_VoyageTerrainView",Vector4.zero);
+                Shader.SetGlobalColor("_VoyageGrassEnvironmentColor",Color.white); Shader.SetGlobalFloat("_VoyageGrassEnvironmentLight",1);
+                yield return null; // Allow the new MeshRenderer to enter Unity's culling scene.
+                target.Create();
+                Color Render()
+                {
+                    camera.Render(); RenderTexture.active=target;
+                    image.ReadPixels(new Rect(0,0,64,64),0,0); image.Apply(); return image.GetPixel(32,32);
+                }
+                Shader.SetGlobalFloat("_VoyageRoadEnabled",0); Color ground=Render();
+                Shader.SetGlobalFloat("_VoyageRoadEnabled",1); Color road=Render();
+                Directory.CreateDirectory("Logs/GrassFlowValidation"); File.WriteAllBytes("Logs/GrassFlowValidation/road-runtime.png",image.EncodeToPNG());
+                Assert.That(road.r,Is.GreaterThan(ground.r+.003f),"Dirt must visibly change the runtime terrain shader.");
+                Assert.That(road.r,Is.GreaterThan(road.g)); Assert.That(road.g,Is.GreaterThan(road.b));
+                Assert.That(ShaderUtil.ShaderHasError(shader),Is.False);
+            }
+            finally
+            {
+                Call(map,"Reload"); Shader.SetGlobalVector("_VoyageTerrainView",oldView);
+                Shader.SetGlobalColor("_VoyageGrassEnvironmentColor",oldColor); Shader.SetGlobalFloat("_VoyageGrassEnvironmentLight",oldLight);
+                camera.targetTexture=null; RenderTexture.active=previous; Object.DestroyImmediate(target); Object.DestroyImmediate(image);
+                Object.DestroyImmediate(cameraObject); Object.DestroyImmediate(terrainObject); Object.DestroyImmediate(lightObject);
+                Object.DestroyImmediate(map); Object.DestroyImmediate(mask); Object.DestroyImmediate(material); Object.DestroyImmediate(mesh);
+                ShaderUtil.allowAsyncCompilation=asyncCompilation;
+                UnityEngine.Rendering.GraphicsSettings.defaultRenderPipeline=oldPipeline; QualitySettings.renderPipeline=oldQualityPipeline;
+            }
+        }
+
+        [Test]
+        public void TerrainEditingViewKeepsZoomPivotAboveMountains()
+        {
+            var window = ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            var view = ScriptableObject.CreateInstance<SceneView>();
+            try
+            {
+                Set(window, "overviewBounds", new Bounds(new Vector3(0, 500, 0), new Vector3(8000, 1200, 8000)));
+                foreach (float size in new[] { 5000f, 256f, 2f })
+                {
+                    Call(window, "SetTerrainView", view, new Vector3(123, -100, 456), size);
+                    Assert.That(view.orthographic, Is.True);
+                    Assert.That(view.pivot.y, Is.GreaterThan(1100f));
+                    Assert.That(view.pivot.x, Is.EqualTo(123f));
+                    Assert.That(view.pivot.z, Is.EqualTo(456f));
+                    Assert.That(Vector3.Dot(view.rotation * Vector3.forward, Vector3.down), Is.GreaterThan(.999f));
+                    Assert.That(view.size, Is.EqualTo(size).Within(.01f));
+                    Assert.That(view.cameraSettings.dynamicClip, Is.False);
+                    Assert.That(view.cameraSettings.farClip, Is.GreaterThan(1200f));
+                }
+            }
+            finally { Object.DestroyImmediate(view); Object.DestroyImmediate(window); }
+        }
+
+        [Test]
+        public void WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights()
+        {
+            var window = ScriptableObject.CreateInstance(Find("GrassFlow.Editor.GrassFlowPainterWindow"));
+            var index = ScriptableObject.CreateInstance(Find("Voyage.TerrainSystem.TerrainTileIndex"));
+            var settings = ScriptableObject.CreateInstance(Find("Voyage.TerrainSystem.TerrainChunkSettings"));
+            Mesh meshA = Surface(), meshB = Surface(16);
+            ScriptableObject a = Patch(meshA), b = Patch(meshB,16);
+            var map = new Texture2D(64,32,TextureFormat.RGBA32,false,true);
+            try
+            {
+                Set(settings,"tileSize",16f); Set(index,"settings",settings); Set(window,"terrainIndex",index);
+                var records = (System.Collections.IList)Get(index,"tiles");
+                var cache = (System.Collections.IDictionary)Get(window,"worldPatches");
+                for(int i=0;i<2;i++)
+                {
+                    object record=Activator.CreateInstance(Find("Voyage.TerrainSystem.TerrainTileRecord"));
+                    Set(record,"coordinate",new Vector2Int(i,0)); records.Add(record);
+                    cache.Add(new Vector2Int(i,0),i==0?a:b);
+                }
+                Set(window,"radius",8f); Set(window,"opacity",1f); Set(window,"hardness",1f);
+                Set(window,"overviewWeights",map);
+                Set(window,"overviewBounds",new Bounds(new Vector3(16,0,8),new Vector3(32,1,16)));
+                Assert.That(((System.Collections.IList)Get(window,"patches")).Count, Is.Zero, "No manual 3x3 load is needed.");
+                Undo.IncrementCurrentGroup(); int group=Undo.GetCurrentGroup();
+                Call(window,"PaintWorldStroke",new Vector3(15,0,8),new Vector3(17,0,8),0f);
+                Assert.That(((Texture2D)Get(a,"density")).GetPixel(240,128).r,Is.LessThan(.01f));
+                Assert.That(((Texture2D)Get(b,"density")).GetPixel(16,128).r,Is.LessThan(.01f));
+                Assert.That(map.GetPixel(32,16).r,Is.LessThan(.01f));
+                Undo.FlushUndoRecordObjects(); Undo.CollapseUndoOperations(group); Undo.PerformUndo();
+                Call(window,"Refresh");
+                Assert.That(((Texture2D)Get(a,"density")).GetPixel(240,128).r,Is.GreaterThan(.99f));
+                Assert.That(((Texture2D)Get(b,"density")).GetPixel(16,128).r,Is.GreaterThan(.99f));
+                Assert.That(map.GetPixel(32,16).r,Is.GreaterThan(.99f));
+            }
+            finally
+            {
+                Undo.ClearUndo((Object)Get(a,"density")); Undo.ClearUndo((Object)Get(b,"density"));
+                Object.DestroyImmediate(window); Object.DestroyImmediate(index); Object.DestroyImmediate(settings);
+                DeletePatch(a); DeletePatch(b); Object.DestroyImmediate(meshA); Object.DestroyImmediate(meshB);
+            }
+        }
+
+        [Test]
+        public void DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh()
+        {
+            var mesh = Surface(); var originalVertices = mesh.vertices; var originalTriangles = mesh.triangles;
+            var patch = Patch(mesh); var density = (Texture2D)Get(patch, "density");
+            var shader = Shader.Find("Hidden/Voyage/GrassDensityPreview");
+            Assert.That(shader, Is.Not.Null);
+            var material = new Material(shader);
+            var target = new RenderTexture(64, 64, 24, RenderTextureFormat.ARGB32);
+            var image = new Texture2D(64, 64, TextureFormat.RGBA32, false, true);
+            var previous = RenderTexture.active;
+            var commands = new UnityEngine.Rendering.CommandBuffer();
+            try
+            {
+                material.SetTexture("_DensityMap", density);
+                material.SetTexture("_SurfaceMap", (Texture2D)Get(patch, "surface"));
+                material.SetVector("_PatchBounds", new Vector4(0, 0, 16, 16));
+                target.Create();
+                Matrix4x4 view = Matrix4x4.Scale(new Vector3(1, 1, -1)) * Matrix4x4.TRS(new Vector3(8,20,8), Quaternion.LookRotation(Vector3.down, Vector3.forward), Vector3.one).inverse;
+                commands.SetRenderTarget(target);
+                commands.SetViewProjectionMatrices(view, GL.GetGPUProjectionMatrix(Matrix4x4.Ortho(-8,8,-8,8,.1f,40f), true));
+                commands.ClearRenderTarget(true, true, Color.black);
+                commands.DrawMesh(mesh, Matrix4x4.identity, material);
+                Color Render()
+                {
+                    UnityEngine.Graphics.ExecuteCommandBuffer(commands);
+                    RenderTexture.active = target;
+                    image.ReadPixels(new Rect(0,0,64,64),0,0); image.Apply();
+                    return image.GetPixel(32,32);
+                }
+                Color dense = Render();
+                Assert.That(dense.r, Is.GreaterThan(.9f)); Assert.That(dense.g, Is.LessThan(.1f));
+                Call(patch, "Paint", new Vector3(8,0,8), 32f, 1f, 0f, 1f);
+                Color sparse = Render();
+                Assert.That(sparse.g, Is.GreaterThan(.9f)); Assert.That(sparse.r, Is.LessThan(.1f));
+                CollectionAssert.AreEqual(originalVertices, mesh.vertices);
+                CollectionAssert.AreEqual(originalTriangles, mesh.triangles);
+                Assert.That(ShaderUtil.ShaderHasError(shader), Is.False);
+            }
+            finally
+            {
+                RenderTexture.active = previous; commands.Release();
+                Object.DestroyImmediate(material); Object.DestroyImmediate(target); Object.DestroyImmediate(image);
+                DeletePatch(patch); Object.DestroyImmediate(mesh);
+            }
+        }
+
+        [Test]
         public void BrushErasesAddsAndUndoRestoresTexture()
         {
             var mesh = Surface(); var patch = Patch(mesh); var density = (Texture2D)Get(patch, "density");

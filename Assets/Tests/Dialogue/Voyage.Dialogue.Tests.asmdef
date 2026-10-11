@@ -1,0 +1,7 @@
+{
+  "name": "Voyage.Dialogue.Tests",
+  "references": ["Voyage.Dialogue"],
+  "includePlatforms": ["Editor"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false
+}

@@ -76,10 +76,6 @@ public class PlayerCar : MonoBehaviour
     float cachedKeyboardSteer;
     bool cachedBoost;
     bool cachedHandbrake;
-    bool rvInputOverride;
-    float rvThrottle;
-    float rvSteer;
-    bool rvBraking;
     [Header("Diagnostics")]
     public bool diagnosticLogging = false;
     string surfaceType = "GROUND";
@@ -133,23 +129,8 @@ public class PlayerCar : MonoBehaviour
             return;
         }
         if (rb == null) rb = gameObject.AddComponent<Rigidbody>();
-        rb.mass = 1000f;
-        rb.isKinematic = false;
-        rb.useGravity = true;
-        rb.detectCollisions = true;
-        rb.linearDamping = 0.15f;
-        rb.angularDamping = 0.35f;
-        rb.interpolation = RigidbodyInterpolation.Interpolate;
-        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
-        rb.solverIterations = 12;
-        rb.solverVelocityIterations = 8;
-        rb.sleepThreshold = 0.005f;
-        // The raycast suspension has no physical wheel joints to balance roll
-        // and pitch. Letting the rigidbody rotate on X/Z makes one tire lose
-        // contact, then the next suspension step kicks it back down. Keep
-        // only yaw free; steering remains fully controlled by the vehicle
-        // solver and the four wheel rays stay on one stable chassis plane.
-        rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        terrainFollower = GetComponent<VehicleTerrainFollower>();
+        if (terrainFollower == null) terrainFollower = gameObject.AddComponent<VehicleTerrainFollower>();
     }
     public void BindTerrain(Terrain terrain)
     {
@@ -168,10 +149,33 @@ public class PlayerCar : MonoBehaviour
             Vector3 origin = transform.position + Vector3.up * 1.1f;
             int hitCount = Physics.RaycastNonAlloc(origin, Vector3.down, airborneHits, 4.5f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
             cachedAirborne = true;
-            for (int i = 0; i < hitCount; i++)
+            if (hitCount == airborneHits.Length)
             {
-                Transform hitTransform = airborneHits[i].collider != null ? airborneHits[i].collider.transform : null;
-                if (hitTransform != null && hitTransform != transform && !hitTransform.IsChildOf(transform)) { cachedAirborne = false; break; }
+                // NonAlloc queries can return an arbitrary subset when full;
+                // use the allocating path only for this unusual saturated case.
+                RaycastHit[] allHits = Physics.RaycastAll(origin, Vector3.down, 4.5f,
+                    Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
+                for (int i = 0; i < allHits.Length; i++)
+                {
+                    Transform hitTransform = allHits[i].collider != null ? allHits[i].collider.transform : null;
+                    if (hitTransform != null && hitTransform != transform && !hitTransform.IsChildOf(transform))
+                    {
+                        cachedAirborne = false;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < hitCount; i++)
+                {
+                    Transform hitTransform = airborneHits[i].collider != null ? airborneHits[i].collider.transform : null;
+                    if (hitTransform != null && hitTransform != transform && !hitTransform.IsChildOf(transform))
+                    {
+                        cachedAirborne = false;
+                        break;
+                    }
+                }
             }
             return cachedAirborne;
         }
@@ -987,13 +991,6 @@ public class PlayerCar : MonoBehaviour
     {
         if (terrainFollower == null) return;
 
-        if (rvInputOverride)
-        {
-            ApplyDrivingInputs(rvThrottle, rvSteer, rvBraking, rvBraking);
-            return;
-        }
-
-
         Vector2 pad = cachedPadStick;
         float keyboardThrottle = cachedKeyboardThrottle;
         float keyboardSteer = cachedKeyboardSteer;
@@ -1084,29 +1081,6 @@ public class PlayerCar : MonoBehaviour
         UpdateBodyVisuals(throttle, lateralSpeed);
         UpdateEngineAudio(throttle, forwardSpeed);
         UpdateTerrainAudio();
-    }
-
-    /// <summary>Input bridge used by the RV state machine.</summary>
-    public void ApplyRVInputs(float throttle, float steerInput, bool braking)
-    {
-        rvInputOverride = true;
-        rvThrottle = Mathf.Clamp(throttle, -1f, 1f);
-        rvSteer = Mathf.Clamp(steerInput, -1f, 1f);
-        rvBraking = braking;
-    }
-
-    public void ReleaseRVInputOverride()
-    {
-        rvInputOverride = false;
-    }
-
-    public void StopVehicle()
-    {
-        rvInputOverride = true;
-        rvThrottle = 0f;
-        rvSteer = 0f;
-        rvBraking = true;
-        if (terrainFollower != null) terrainFollower.StopImmediately();
     }
 
     void ApplyDrivingInputs(float throttle, float steerInput, bool braking, bool handbrake)

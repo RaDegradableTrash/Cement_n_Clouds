@@ -32,6 +32,9 @@ Shader "Voyage/Terrain/Stylized"
         float _VoyageContourDepthPass;
         float4 _VoyageAtmosphereColor;
         float4 _VoyageAtmosphereRange;
+        TEXTURE2D(_VoyageRoadMap); SAMPLER(sampler_VoyageRoadMap);
+        float4 _VoyageRoadBounds;
+        float _VoyageRoadEnabled;
         void ClipTerrainCoverage(float2 pixel, float3 world)
         {
             // Contours describe solid geometry, never the individual pixels of
@@ -106,6 +109,11 @@ Shader "Voyage/Terrain/Stylized"
                 macro = lerp(1.0, lerp(0.78, 1.22, macro), _MacroStrength);
                 half heightBand = saturate(input.positionWS.y * 0.012 * _HeightTint + 0.5h);
                 half3 color = VoyageGroundAlbedo(input.positionWS);
+                float2 roadUV = (input.positionWS.xz - _VoyageRoadBounds.xy) / max(_VoyageRoadBounds.zw, .001);
+                float road = SAMPLE_TEXTURE2D(_VoyageRoadMap, sampler_VoyageRoadMap, roadUV).r * _VoyageRoadEnabled;
+                road *= all(roadUV >= 0) && all(roadUV <= 1);
+                // Dry, light brown dirt; lighting, shadows and fog remain shared with the ground.
+                color = lerp(color, half3(.58, .40, .23) * lerp(.94, 1.06, macro), saturate(road));
                 color = VoyageSurfaceLight(color,input.positionWS,normalWS);
                 color = MixFog(color, input.fogFactor);
                 // The persistent horizon mesh uses the same grassland surface

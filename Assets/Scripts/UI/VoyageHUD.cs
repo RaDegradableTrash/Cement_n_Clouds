@@ -13,8 +13,11 @@ public sealed class VoyageHUD : MonoBehaviour
             style = new GUIStyle(GUI.skin.label) { fontSize = 18, fontStyle = FontStyle.Bold };
             style.normal.textColor = Color.white;
         }
-        GUI.Label(new Rect(24f, 20f, 280f, 32f), Mathf.RoundToInt(core.HudSpeedKmh) + " KM/H", style);
-        GUI.Label(new Rect(24f, 52f, 280f, 32f), $"FUEL {FuelTank.SharedFuel:0.0} / {FuelTank.SharedCapacity:0}", style);
+        if (Voyage.Exploration.ExplorationSession.Instance == null || !Voyage.Exploration.ExplorationSession.Instance.OnFoot)
+        {
+            GUI.Label(new Rect(24f, 20f, 280f, 32f), Mathf.RoundToInt(core.HudSpeedKmh) + " KM/H", style);
+            GUI.Label(new Rect(24f, 52f, 280f, 32f), $"FUEL {FuelTank.SharedFuel:0.0} / {FuelTank.SharedCapacity:0}", style);
+        }
         if (!core.HudPaused) return;
         GUI.Box(new Rect(Screen.width * 0.5f - 150f, Screen.height * 0.5f - 48f, 300f, 96f), GUIContent.none);
         GUI.Label(new Rect(Screen.width * 0.5f - 100f, Screen.height * 0.5f - 18f, 200f, 28f), "PAUSED", style);

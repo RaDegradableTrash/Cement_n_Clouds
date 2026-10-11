@@ -496,7 +496,7 @@ public class CarControl : MonoBehaviour
 
     void ApplySteeringReleaseYawDamping(bool grounded)
     {
-        if (!grounded || rigidBody == null || steeringInputHeld || currentDriftAmount > 0.05f) return;
+        if (!grounded || rigidBody == null || rigidBody.isKinematic || steeringInputHeld || currentDriftAmount > 0.05f) return;
 
         // As the wheel returns to center, progressively remove yaw momentum.
         // WheelColliders can otherwise keep the chassis circling after the
@@ -1043,7 +1043,9 @@ if (!isBraking)
             // 回收燃油到油箱
             if (regenAmount > 0)
             {
-                AddFuel(regenAmount);
+                // Continuous regeneration must not emit a formatted log and
+                // stack trace every physics step. Preserve refuelling side effects.
+                AddFuelInternal(regenAmount, false);
                 
                 // 可选：添加UI提示（如显示"再生制动 +X"）
                 // Debug.Log($"Regen: +{regenAmount:F3} fuel");
@@ -1054,6 +1056,11 @@ if (!isBraking)
     // ★★★ 公共接口：添加燃油 ★★★
     public void AddFuel(float amount)
     {
+        AddFuelInternal(amount, true);
+    }
+
+    private void AddFuelInternal(float amount, bool logRefill)
+    {
         if (float.IsNaN(amount) || float.IsInfinity(amount) || amount <= 0f) return;
         
         float oldFuel = FuelTank.SharedFuel;
@@ -1062,7 +1069,7 @@ if (!isBraking)
         float added = FuelTank.SharedFuel - oldFuel;
         if (added > 0)
         {
-            Debug.Log($"Added {added:F2} fuel. Total: {FuelTank.SharedFuel:F2}/{FuelTank.SharedCapacity:F2}");
+            if (logRefill) Debug.Log($"Added {added:F2} fuel. Total: {FuelTank.SharedFuel:F2}/{FuelTank.SharedCapacity:F2}");
             
             // 如果有加油动画或UI事件可以在这里触发
             // OnFuelAdded?.Invoke(added);

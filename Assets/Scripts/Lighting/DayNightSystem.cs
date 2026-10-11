@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 namespace Voyage.Lighting
 {
@@ -145,8 +146,11 @@ namespace Voyage.Lighting
             light.type = LightType.Directional;
             light.shadows = LightShadows.Soft;
             light.shadowStrength = strength;
-            light.shadowBias = .035f;
-            light.shadowNormalBias = .3f;
+            // URP otherwise replaces Light's bias with the pipeline asset's
+            // very small defaults, exposing terrain triangles at grazing sun angles.
+            light.GetUniversalAdditionalLightData().usePipelineSettings = false;
+            light.shadowBias = .5f;
+            light.shadowNormalBias = .7f;
             light.cullingMask = ~0;
             light.renderMode = LightRenderMode.Auto;
         }

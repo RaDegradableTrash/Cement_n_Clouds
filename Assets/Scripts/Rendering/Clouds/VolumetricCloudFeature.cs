@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.RenderGraphModule;
@@ -18,10 +19,13 @@ namespace Voyage.Rendering.Clouds
             public Shader shader;
             [Header("Quality")]
             [Range(.25f, 1f)] public float resolutionScale = .6f;
+            public bool stabilizeDistantClouds = true;
             [Range(8, 96)] public int primarySteps = 64;
             [Range(1, 8)] public int lightSteps = 4;
             [Tooltip("Steps for the full-direction cloud reflection panorama used by water.")]
             [Range(8, 64)] public int reflectionSteps = 32;
+            [Tooltip("Spread the full-resolution reflection panorama across this many frames. 1 updates it in full every frame.")]
+            [Range(1, 8)] public int reflectionSlices = 4;
             [Header("Cloud layer")]
             [Tooltip("World-space Y altitude where the cloud volume begins.")]
             [Min(0f)] public float bottomHeight = 900f;
@@ -54,12 +58,38 @@ namespace Voyage.Rendering.Clouds
             Vector2 windOffset;
             double lastWindTime = double.NaN;
             bool renderReflection;
+            int reflectionSlices;
+            Camera renderingCamera;
+            bool stabilize;
+            readonly Dictionary<Camera, History> histories = new Dictionary<Camera, History>();
+            readonly List<Camera> expiredCameras = new List<Camera>();
+            sealed class History
+            {
+                public RTHandle previous, next;
+                public Matrix4x4 viewProjection;
+                public Vector3 position;
+                public Quaternion rotation;
+                public Vector2 wind;
+                public float fov, lastTime;
+                public bool valid;
+                public RTHandle reflection;
+                public Vector3 reflectionPosition;
+                public float reflectionTime, reflectionClock;
+                public bool reflectionValid;
+                public void Release() { previous?.Release(); next?.Release(); reflection?.Release(); }
+            }
+            public void Dispose()
+            {
+                foreach (var history in histories.Values) history.Release();
+                histories.Clear();
+            }
 
             sealed class PassData
             {
                 public Material material;
                 public TextureHandle source;
                 public TextureHandle cloud;
+                public Rect reflectionRegion;
             }
 
             public CloudPass()
@@ -75,12 +105,16 @@ namespace Voyage.Rendering.Clouds
             public void Setup(Material cloudMaterial, CloudSettings settings, Camera camera)
             {
                 material = cloudMaterial;
+                renderingCamera = camera;
+                stabilize = settings.stabilizeDistantClouds && !camera.orthographic;
+                if (!stabilize && histories.TryGetValue(camera, out History disabledHistory)) disabledHistory.valid = false;
                 resolutionScale = Mathf.Clamp(settings.resolutionScale, .25f, 1f);
                 material.SetFloat("_PrimarySteps", settings.primarySteps);
                 material.SetFloat("_LightSteps", settings.lightSteps);
                 material.SetFloat("_ReflectionSteps", settings.reflectionSteps);
                 SeaLevelWaterSystem water = SeaLevelWaterSystem.Instance;
                 renderReflection = water != null && water.isActiveAndEnabled;
+                reflectionSlices = Mathf.Clamp(settings.reflectionSlices, 1, 8);
                 Shader.SetGlobalFloat("_VoyageCloudReflectionEnabled", renderReflection ? 1f : 0f);
                 if (renderReflection)
                 {
@@ -134,33 +168,50 @@ namespace Voyage.Rendering.Clouds
                 }
 
                 TextureHandle source = resources.cameraColor;
+                expiredCameras.Clear();
+                foreach (var entry in histories)
+                    if (entry.Key == null) { entry.Value.Release(); expiredCameras.Add(entry.Key); }
+                foreach (var expired in expiredCameras) histories.Remove(expired);
                 if (renderReflection)
                 {
-                    // An upper-hemisphere panorama from the mirror camera position.
-                    // Its basis never uses camera rotation, FOV, or screen bounds.
-                    var reflectionDesc = new TextureDesc(512, 256)
-                    {
-                        name = "_VoyageCloudReflectionPanorama",
-                        colorFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.R16G16B16A16_SFloat,
-                        depthBufferBits = DepthBits.None,
-                        msaaSamples = MSAASamples.None,
-                        filterMode = FilterMode.Bilinear,
-                        wrapMode = TextureWrapMode.Repeat,
-                        clearBuffer = true,
-                        clearColor = Color.clear
-                    };
-                    TextureHandle reflection = renderGraph.CreateTexture(reflectionDesc);
+                    // Cache per camera and refresh azimuth strips. Each strip spans
+                    // the entire elevation range, distributing the costly horizon
+                    // rays evenly instead of creating one heavy frame per cycle.
+                    if (!histories.TryGetValue(renderingCamera, out History reflectionHistory))
+                        histories.Add(renderingCamera, reflectionHistory = new History());
+                    var reflectionDesc = new RenderTextureDescriptor(512, 256,
+                        UnityEngine.Experimental.Rendering.GraphicsFormat.R16G16B16A16_SFloat, 0);
+                    bool resized = RenderingUtils.ReAllocateHandleIfNeeded(ref reflectionHistory.reflection,
+                        reflectionDesc, FilterMode.Bilinear, TextureWrapMode.Repeat, name: "Cloud reflection panorama");
+                    float clock = Voyage.Lighting.DayNightSystem.Instance != null
+                        ? Voyage.Lighting.DayNightSystem.Instance.currentTime : 0f;
+                    bool reset = resized || !reflectionHistory.reflectionValid
+                        || Time.realtimeSinceStartup - reflectionHistory.reflectionTime > 1f
+                        || Vector3.Distance(renderingCamera.transform.position, reflectionHistory.reflectionPosition) > 25f
+                        || Mathf.Abs(Mathf.DeltaAngle(clock * 15f, reflectionHistory.reflectionClock * 15f)) > 4f;
+                    TextureHandle reflection = renderGraph.ImportTexture(reflectionHistory.reflection);
                     using (IRasterRenderGraphBuilder builder = renderGraph.AddRasterRenderPass<PassData>(
                                "Voyage Cloud Reflection Panorama", out PassData reflectionData, reflectionSampler))
                     {
                         reflectionData.material = material;
-                        builder.SetRenderAttachment(reflection, 0, AccessFlags.Write);
+                        int slice = Time.frameCount % reflectionSlices;
+                        int left = 512 * slice / reflectionSlices, right = 512 * (slice + 1) / reflectionSlices;
+                        reflectionData.reflectionRegion = reset ? new Rect(0, 0, 512, 256) : new Rect(left, 0, right - left, 256);
+                        // Preserve the other strips. Scissoring (not a reduced
+                        // viewport) retains the full panorama's ray/UV mapping.
+                        builder.SetRenderAttachment(reflection, 0, AccessFlags.ReadWrite);
                         builder.SetGlobalTextureAfterPass(reflection, ReflectionTextureId);
                         builder.SetRenderFunc(static (PassData data, RasterGraphContext context) =>
                         {
+                            context.cmd.EnableScissorRect(data.reflectionRegion);
                             context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 2, MeshTopology.Triangles, 3, 1);
+                            context.cmd.DisableScissorRect();
                         });
                     }
+                    reflectionHistory.reflectionValid = true;
+                    reflectionHistory.reflectionPosition = renderingCamera.transform.position;
+                    reflectionHistory.reflectionTime = Time.realtimeSinceStartup;
+                    reflectionHistory.reflectionClock = clock;
                 }
                 TextureDesc cloudDesc = renderGraph.GetTextureDesc(source);
                 cloudDesc.name = "_VoyageCloudLowResolution";
@@ -191,6 +242,49 @@ namespace Voyage.Rendering.Clouds
                     {
                         context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 0, MeshTopology.Triangles, 3, 1);
                     });
+                }
+
+                if (stabilize && material.passCount > 3 && cloudDesc.dimension == TextureDimension.Tex2D)
+                {
+                    if (!histories.TryGetValue(renderingCamera, out History history))
+                        histories.Add(renderingCamera, history = new History());
+                    var descriptor = new RenderTextureDescriptor(cloudDesc.width, cloudDesc.height,
+                        UnityEngine.Experimental.Rendering.GraphicsFormat.R16G16B16A16_SFloat, 0);
+                    bool resized = RenderingUtils.ReAllocateHandleIfNeeded(ref history.previous, descriptor,
+                        FilterMode.Bilinear, TextureWrapMode.Clamp, name: "Cloud history");
+                    resized |= RenderingUtils.ReAllocateHandleIfNeeded(ref history.next, descriptor,
+                        FilterMode.Bilinear, TextureWrapMode.Clamp, name: "Cloud history");
+                    bool usable = history.valid && !resized && Time.realtimeSinceStartup - history.lastTime < 1f
+                        && Vector3.Distance(history.position, renderingCamera.transform.position) < 25f
+                        && Quaternion.Angle(history.rotation, renderingCamera.transform.rotation) < 20f
+                        && Mathf.Abs(history.fov - renderingCamera.fieldOfView) < .1f;
+                    material.SetTexture("_CloudHistoryTexture", history.previous.rt);
+                    material.SetMatrix("_CloudPreviousVP", history.viewProjection);
+                    material.SetVector("_CloudHistoryWindDelta", history.wind - windOffset);
+                    material.SetFloat("_CloudHistoryWeight", usable ? .85f : 0f);
+                    TextureHandle previous = renderGraph.ImportTexture(history.previous);
+                    TextureHandle resolved = renderGraph.ImportTexture(history.next);
+                    using (var builder = renderGraph.AddRasterRenderPass<PassData>("Voyage Cloud Stabilization", out var temporalData))
+                    {
+                        temporalData.material = material;
+                        builder.UseGlobalTexture(CloudTextureId, AccessFlags.Read);
+                        builder.UseTexture(previous, AccessFlags.Read);
+                        if (resources.cameraDepthTexture.IsValid()) builder.UseTexture(resources.cameraDepthTexture, AccessFlags.Read);
+                        builder.SetRenderAttachment(resolved, 0, AccessFlags.Write);
+                        builder.SetGlobalTextureAfterPass(resolved, CloudTextureId);
+                        builder.SetRenderFunc(static (PassData data, RasterGraphContext context) =>
+                            context.cmd.DrawProcedural(Matrix4x4.identity, data.material, 3, MeshTopology.Triangles, 3, 1));
+                    }
+                    cloud = resolved;
+                    (history.previous, history.next) = (history.next, history.previous);
+                    var cameraData = frameData.Get<UniversalCameraData>();
+                    history.viewProjection = GL.GetGPUProjectionMatrix(cameraData.GetProjectionMatrix(), true) * cameraData.GetViewMatrix();
+                    history.position = renderingCamera.transform.position;
+                    history.rotation = renderingCamera.transform.rotation;
+                    history.fov = renderingCamera.fieldOfView;
+                    history.wind = windOffset;
+                    history.lastTime = Time.realtimeSinceStartup;
+                    history.valid = true;
                 }
 
                 TextureDesc destinationDesc = renderGraph.GetTextureDesc(source);
@@ -225,6 +319,17 @@ namespace Voyage.Rendering.Clouds
         }
 
         public CloudSettings settings = new CloudSettings();
+#if UNITY_EDITOR
+        public static bool SceneViewCloudsEnabled
+        {
+            get => UnityEditor.EditorPrefs.GetBool("Voyage.SceneViewCloudsEnabled", false);
+            set
+            {
+                UnityEditor.EditorPrefs.SetBool("Voyage.SceneViewCloudsEnabled", value);
+                UnityEditor.SceneView.RepaintAll();
+            }
+        }
+#endif
         CloudPass cloudPass;
         Material cloudMaterial;
         bool reportedActiveConfiguration;
@@ -259,6 +364,9 @@ namespace Voyage.Rendering.Clouds
             if (cameraData.renderType == CameraRenderType.Overlay) return;
             bool active = settings.renderClouds && cloudMaterial != null &&
                 (cameraData.cameraType == CameraType.Game || cameraData.cameraType == CameraType.SceneView);
+#if UNITY_EDITOR
+            if (cameraData.cameraType == CameraType.SceneView && !SceneViewCloudsEnabled) active = false;
+#endif
             Shader.SetGlobalFloat("_VoyageCloudEnabled", active ? 1f : 0f);
             if (!active)
                 return;
@@ -292,6 +400,7 @@ namespace Voyage.Rendering.Clouds
 
         void DisposeMaterial()
         {
+            cloudPass?.Dispose();
             Shader.SetGlobalFloat("_VoyageCloudEnabled", 0f);
             Shader.SetGlobalFloat("_VoyageCloudReflectionEnabled", 0f);
             if (cloudMaterial != null) CoreUtils.Destroy(cloudMaterial);

@@ -24,6 +24,19 @@ public class FollowCamera : MonoBehaviour
 
     [Header("On-foot overhead view")]
     public float onFootPitch = 68f;
+    public float onFootFocusHeight = 1.76f;
+    bool dismountView;
+    float dismountYaw;
+    public void SetDismountView(bool active, float facingYaw = 0)
+    {
+        dismountView = active;
+        if (active)
+        {
+            dismountYaw = facingYaw;
+            currentYaw = desiredYaw = facingYaw;
+            currentPitch = desiredPitch = 18f;
+        }
+    }
 
     [Header("Vehicle tracking")]
     [Tooltip("How far ahead of the vehicle root the chase camera looks.")]
@@ -206,7 +219,7 @@ public class FollowCamera : MonoBehaviour
 
     bool LookActive()
     {
-        return hadFocus && Time.timeScale > 0.001f && target != null;
+        return hadFocus && Time.timeScale > 0.001f && target != null && !Voyage.Dialogue.CoBluesDialogue.UsesPointer;
     }
 
     void UpdateCursorState()
@@ -307,7 +320,7 @@ public class FollowCamera : MonoBehaviour
         }
         else
         {
-            rawPivot = target.position + Vector3.up * (onFoot ? 1.1f : (hoodView ? 0.85f : targetHeight));
+            rawPivot = target.position + Vector3.up * (onFoot ? onFootFocusHeight : (hoodView ? 0.85f : targetHeight));
             rawCameraPivot = rawPivot;
         }
         if (!pivotInitialized)
@@ -349,19 +362,9 @@ public class FollowCamera : MonoBehaviour
             reportedPose = true;
         }
 
-        float followBlend = 1f - Mathf.Exp(-followDamping * Time.unscaledDeltaTime);
-        if (vehicleTarget)
-        {
-            // The vehicle anchor is already delayed and filtered above. Apply
-            // the collision-safe result directly so a camera that was pushed
-            // into the ground cannot remain there while a second Lerp catches
-            // up over several frames.
-            transform.position = desiredPosition;
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, desiredPosition, followBlend);
-        }
+        // Pivot and orbit angles are already filtered. Cartesian interpolation
+        // cuts across the orbit circle and shortens its radius while turning.
+        transform.position = desiredPosition;
 
         Quaternion lookRotation = Quaternion.LookRotation(pivot - transform.position, Vector3.up);
         float rotationBlend = 1f - Mathf.Exp(-rotationDamping * Time.unscaledDeltaTime);
@@ -378,7 +381,7 @@ public class FollowCamera : MonoBehaviour
         // Follow smoothing and camera shake happen after the first orbit cast.
         // Re-check the final pose so neither can leave the camera inside terrain.
         Vector3 beforeCollisionCorrection = transform.position;
-        transform.position = ResolveCollision(cameraPivot, transform.position);
+        transform.position = ResolveCollision(cameraPivot, transform.position, false);
         if ((transform.position - beforeCollisionCorrection).sqrMagnitude > 0.000001f)
             transform.rotation = Quaternion.LookRotation(pivot - transform.position, Vector3.up);
 
@@ -393,6 +396,12 @@ public class FollowCamera : MonoBehaviour
 
     void ReadLookInput()
     {
+        if (dismountView)
+        {
+            currentYaw = desiredYaw = dismountYaw;
+            currentPitch = desiredPitch = 18f;
+            return;
+        }
         if (!LookActive() || VoyageCommandConsole.IsOpen || VoyageCommandConsole.ConsumedInputThisFrame) return;
 
         Vector2 look = Vector2.zero;
@@ -423,7 +432,7 @@ public class FollowCamera : MonoBehaviour
             // input backend when the Game view does not publish a Mouse device.
             float legacyScrollAxis = Input.GetAxis("Mouse ScrollWheel");
             if (Mathf.Abs(legacyScrollAxis) > 0.0001f) scroll = legacyScrollAxis * 120f;
-            if (Mathf.Abs(scroll) > 0.01f)
+            if (!Voyage.Dialogue.CoBluesDialogue.ConsumesScroll && Mathf.Abs(scroll) > 0.01f)
             {
                 float minZoom = minDistance / Mathf.Max(0.01f, distance);
                 float maxZoom = Mathf.Max(minZoom, maxDistance / Mathf.Max(0.01f, distance));
@@ -438,7 +447,7 @@ public class FollowCamera : MonoBehaviour
         zoom = Mathf.Lerp(zoom, zoomTarget, 1f - Mathf.Exp(-zoomSmooth * Time.unscaledDeltaTime));
     }
 
-    Vector3 ResolveCollision(Vector3 pivot, Vector3 desired)
+    Vector3 ResolveCollision(Vector3 pivot, Vector3 desired, bool updateDistance = true)
     {
         Vector3 ray = desired - pivot;
         float length = ray.magnitude;
@@ -476,6 +485,9 @@ public class FollowCamera : MonoBehaviour
                     nearest = Mathf.Min(nearest, hit.distance);
         }
         float targetDistance = nearest < length ? Mathf.Max(0.05f, nearest - cameraCollisionPadding) : length;
+        // Final shake/safety casts must never feed a shorter pose back into
+        // the persistent orbit distance. Only the full requested orbit does.
+        if (!updateDistance) return pivot + ray.normalized * targetDistance;
         if (currentCollisionDistance < 0f || targetDistance < currentCollisionDistance)
         {
             // Move inward immediately. Interpolating this side of the

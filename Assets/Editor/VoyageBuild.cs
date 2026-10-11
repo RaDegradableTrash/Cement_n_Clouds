@@ -11,7 +11,7 @@ using UnityEngine;
 public static class VoyageBuild
 {
     const string RequestPath = "Library/VoyageBuildRequest.json";
-    [Serializable] public class Request { public string output; public string report; public bool clean; }
+    [Serializable] public class Request { public string output; public string report; public string version; public bool clean; }
     [Serializable] public class Step { public string name; public int depth; public double seconds; }
     [Serializable] public class Result
     {
@@ -55,6 +55,8 @@ public static class VoyageBuild
         var timer = System.Diagnostics.Stopwatch.StartNew();
         try
         {
+            if (!string.IsNullOrWhiteSpace(request.version))
+                PlayerSettings.bundleVersion = request.version;
             Directory.CreateDirectory(Path.GetDirectoryName(request.output));
             Directory.CreateDirectory(Path.GetDirectoryName(request.report));
             VoyageTerrainBuildCache.Ensure(BuildTarget.StandaloneWindows64);
