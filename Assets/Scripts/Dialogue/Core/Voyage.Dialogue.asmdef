@@ -1,0 +1,7 @@
+{
+  "name": "Voyage.Dialogue",
+  "rootNamespace": "Voyage.Dialogue",
+  "references": [],
+  "autoReferenced": true,
+  "noEngineReferences": true
+}

@@ -46,13 +46,7 @@ Shader "Hidden/Voyage/VolumetricClouds"
             return output;
         }
 
-        float CloudShape(float3 positionWS)
-        {
-            return VoyageCloudDensity(positionWS, float4(_CloudHeights.xy, _NoiseScale, _Coverage),
-                _CloudOffset.xy, _Density, _Erosion);
-        }
-
-        float LightTransmittance(float3 positionWS)
+        float LightTransmittance(float3 positionWS, float filterWidth)
         {
             float3 lightDirection = normalize(_VoyageCloudSunDirection.xyz + float3(.0001, .0001, .0001));
             float thickness = _CloudHeights.y - _CloudHeights.x;
@@ -65,7 +59,9 @@ Shader "Hidden/Voyage/VolumetricClouds"
             float stepLength = lightDistance / steps;
             float opticalDepth = 0.0;
             [loop] for (int i = 0; i < steps; i++)
-                opticalDepth += CloudShape(positionWS + lightDirection * ((i + .5) * stepLength)) * stepLength;
+                opticalDepth += VoyageCloudDensity(positionWS + lightDirection * ((i + .5) * stepLength),
+                    float4(_CloudHeights.xy, _NoiseScale, _Coverage), _CloudOffset.xy, _Density, _Erosion,
+                    max(filterWidth, stepLength * .5)) * stepLength;
             return exp(-opticalDepth * _Extinction);
         }
         float CloudFogFactor(float distanceToSample)
@@ -86,7 +82,7 @@ Shader "Hidden/Voyage/VolumetricClouds"
             return 0;
         }
 
-        half4 TraceCloud(float3 rayOrigin, float3 rayDirection, float sceneDistance, int steps)
+        half4 TraceCloud(float3 rayOrigin, float3 rayDirection, float sceneDistance, int steps, float rayFootprint)
         {
             float startDistance;
             float endDistance;
@@ -97,14 +93,14 @@ Shader "Hidden/Voyage/VolumetricClouds"
                 if (rayOrigin.y < _CloudHeights.x || rayOrigin.y > _CloudHeights.y)
                     return EmptyCloud();
                 startDistance = 0.0;
-                endDistance = sceneDistance;
+                endDistance = _MaxCloudDistance;
             }
             else
             {
                 float nearIntersection = (_CloudHeights.x - rayOrigin.y) / rayDirection.y;
                 float farIntersection = (_CloudHeights.y - rayOrigin.y) / rayDirection.y;
                 startDistance = max(0.0, min(nearIntersection, farIntersection));
-                endDistance = min(sceneDistance, max(nearIntersection, farIntersection));
+                endDistance = min(_MaxCloudDistance, max(nearIntersection, farIntersection));
             }
             if (endDistance <= startDistance) return EmptyCloud();
 
@@ -113,6 +109,10 @@ Shader "Hidden/Voyage/VolumetricClouds"
             // all 100 km at 64 samples produces box-shaped slices. Resolve the
             // first 10 km of the intersected bank at consistent spatial detail.
             endDistance = min(endDistance, startDistance + 10000.0);
+            // Opaque depth clips integration, never redistributes every sample
+            // in front of it. This keeps the cloud stable beside moving ridges.
+            float visibleEnd = min(endDistance, sceneDistance);
+            if (visibleEnd <= startDistance) return EmptyCloud();
 
 
             // Use regular centered samples. Per-pixel random ray jitter showed
@@ -130,11 +130,14 @@ Shader "Hidden/Voyage/VolumetricClouds"
                 float u1 = (float)(i + 1) / steps;
                 float intervalStart = lerp(startDistance, endDistance, u0);
                 float intervalEnd = lerp(startDistance, endDistance, u1);
-                float stepLength = intervalEnd - intervalStart;
-                float distanceAlongRay = (intervalStart + intervalEnd) * .5;
+                if (intervalStart >= visibleEnd) break;
+                float sampleWidth = (intervalEnd - intervalStart) * .5;
+                float stepLength = min(intervalEnd, visibleEnd) - intervalStart;
+                float distanceAlongRay = intervalStart + stepLength * .5;
                 float3 samplePosition = rayOrigin + rayDirection * distanceAlongRay;
+                float filterWidth = max(sampleWidth, distanceAlongRay * rayFootprint);
                 float density = VoyageCloudDensity(samplePosition, float4(_CloudHeights.xy, _NoiseScale, _Coverage),
-                    _CloudOffset.xy, _Density, _Erosion, max(stepLength * .5, distanceAlongRay * .003));
+                    _CloudOffset.xy, _Density, _Erosion, filterWidth);
                 density *= 1.0 - smoothstep(_MaxCloudDistance * .8, _MaxCloudDistance, distanceAlongRay);
                 if (density > .002)
                 {
@@ -142,7 +145,7 @@ Shader "Hidden/Voyage/VolumetricClouds"
                     // visible through the cloud banks.
                     float extinction = density * stepLength * _Extinction;
                     float alpha = 1.0 - exp(-extinction);
-                    float light = LightTransmittance(samplePosition);
+                    float light = LightTransmittance(samplePosition, filterWidth);
                     float height = saturate((samplePosition.y - _CloudHeights.x) / (_CloudHeights.y - _CloudHeights.x));
                     float3 ambient = _VoyageCloudAmbientColor.rgb * lerp(.48, 1.12, height);
                     ambient *= lerp(float3(1,1,1), float3(1.15,.65,.9), _VoyageCloudTwilight.w);
@@ -212,7 +215,11 @@ Shader "Hidden/Voyage/VolumetricClouds"
                 sceneDistance = min(maximumDistance, distance(scenePositionWS, rayOrigin));
             }
 
-            return TraceCloud(rayOrigin, rayDirection, sceneDistance, clamp((int)_PrimarySteps, 8, 96));
+            // Evaluate derivatives outside the divergent march. The footprint
+            // follows the actual low-resolution pixel and FOV, rather than a
+            // hard-coded angle which aliases on wider views and smaller buffers.
+            float rayFootprint = max(length(ddx(rayDirection)), length(ddy(rayDirection)));
+            return TraceCloud(rayOrigin, rayDirection, sceneDistance, clamp((int)_PrimarySteps, 8, 96), rayFootprint);
         }
 
         half4 FragReflection(Varyings input) : SV_Target
@@ -220,9 +227,55 @@ Shader "Hidden/Voyage/VolumetricClouds"
             float longitude = (input.texcoord.x - .5) * TWO_PI;
             float elevation = input.texcoord.y * HALF_PI;
             float3 direction = float3(sin(longitude) * cos(elevation), sin(elevation), cos(longitude) * cos(elevation));
-            return TraceCloud(_CloudReflectionOrigin.xyz, direction, _MaxCloudDistance, clamp((int)_ReflectionSteps, 8, 64));
+            float rayFootprint = max(length(ddx(direction)), length(ddy(direction)));
+            return TraceCloud(_CloudReflectionOrigin.xyz, direction, _MaxCloudDistance, clamp((int)_ReflectionSteps, 8, 64), rayFootprint);
         }
         TEXTURE2D_X(_VoyageCloudTexture);
+        TEXTURE2D(_CloudHistoryTexture);
+        float4x4 _CloudPreviousVP;
+        float2 _CloudHistoryWindDelta;
+        float _CloudHistoryWeight;
+
+        half4 FragStabilize(Varyings input) : SV_Target
+        {
+            float2 uv = input.texcoord;
+            half4 current = SAMPLE_TEXTURE2D_X(_VoyageCloudTexture, sampler_LinearClamp, uv);
+            if (_CloudHistoryWeight <= 0 || current.a < .005) return current;
+            float depth = SampleSceneDepth(uv);
+#if UNITY_REVERSED_Z
+            if (depth > .000001) return current;
+            float farDepth = .0001;
+#else
+            if (depth < .999999) return current;
+            float farDepth = .9999;
+#endif
+            float3 origin = GetCameraPositionWS();
+            float3 direction = normalize(ComputeWorldSpacePosition(uv, farDepth, UNITY_MATRIX_I_VP) - origin);
+            if (direction.y <= .0001 || origin.y >= _CloudHeights.x) return current;
+            float entry = (_CloudHeights.x - origin.y) / direction.y;
+            float weight = _CloudHistoryWeight * smoothstep(3000.0, 8000.0, entry);
+            if (weight <= 0) return current;
+            float3 world = origin + direction * ((_CloudHeights.x + (_CloudHeights.y-_CloudHeights.x)*.35 - origin.y) / direction.y);
+            world.xz += _CloudHistoryWindDelta;
+            float4 previousClip = mul(_CloudPreviousVP, float4(world, 1));
+            if (previousClip.w <= 0) return current;
+            float2 previousUV = previousClip.xy / previousClip.w * .5 + .5;
+#if UNITY_UV_STARTS_AT_TOP
+            previousUV.y = 1.0 - previousUV.y;
+#endif
+            if (any(previousUV <= 0) || any(previousUV >= 1)) return current;
+            // Clamp to this frame's local range so moving silhouettes and
+            // lighting changes cannot leave an old cloud trailing behind.
+            half4 low = current, high = current;
+            [unroll] for (int y=-1; y<=1; y++)
+            [unroll] for (int x=-1; x<=1; x++)
+            {
+                half4 tap = SAMPLE_TEXTURE2D_X(_VoyageCloudTexture, sampler_LinearClamp, uv + float2(x,y)*_CloudTexelSize.xy);
+                low = min(low, tap); high = max(high, tap);
+            }
+            half4 history = SAMPLE_TEXTURE2D(_CloudHistoryTexture, sampler_LinearClamp, previousUV);
+            return lerp(current, clamp(history, low, high), weight);
+        }
 
         float CloudEyeDepth(float rawDepth)
         {
@@ -293,6 +346,14 @@ Shader "Hidden/Voyage/VolumetricClouds"
             HLSLPROGRAM
             #pragma vertex CloudVert
             #pragma fragment FragReflection
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "CloudStabilization"
+            HLSLPROGRAM
+            #pragma vertex CloudVert
+            #pragma fragment FragStabilize
             ENDHLSL
         }
     }

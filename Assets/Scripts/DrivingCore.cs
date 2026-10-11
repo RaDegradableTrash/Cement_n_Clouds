@@ -134,7 +134,7 @@ public sealed class DrivingCore : MonoBehaviour
     {
         UpdateTerrainStreaming();
         if (Player == null || VoyageCommandConsole.IsOpen || VoyageCommandConsole.ConsumedInputThisFrame) return;
-        if (ReadKeyDown(KeyCode.P) || ReadKeyDown(KeyCode.Escape))
+        if (!Voyage.Dialogue.CoBluesDialogue.InputModal && (ReadKeyDown(KeyCode.P) || (ReadKeyDown(KeyCode.Escape) && !Voyage.Dialogue.CoBluesDialogue.BlocksPause)))
         {
             HudPaused = !HudPaused;
             Time.timeScale = HudPaused ? 0f : 1f;

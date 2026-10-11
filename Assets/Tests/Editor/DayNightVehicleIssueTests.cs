@@ -16,6 +16,43 @@ namespace Voyage.Tests.Editor
         static void Set(object target, string name, object value) => target.GetType().GetField(name, Members).SetValue(target, value);
         static object Get(object target, string name) => target.GetType().GetField(name, Members).GetValue(target);
 
+        [Test]
+        public void ManagedSunUsesItsOwnBiasAndKeepsShadows()
+        {
+            var go=new GameObject("Shadow bias regression");
+            try
+            {
+                var light=go.AddComponent<Light>();
+                GameType("Voyage.Lighting.DayNightSystem").GetMethod("Configure",BindingFlags.NonPublic|BindingFlags.Static).Invoke(null,new object[]{light,.72f});
+                var type=Type.GetType("UnityEngine.Rendering.Universal.UniversalAdditionalLightData, Unity.RenderPipelines.Universal.Runtime",true);
+                var data=go.GetComponent(type);
+                Assert.That(data,Is.Not.Null);
+                Assert.That(type.GetProperty("usePipelineSettings").GetValue(data),Is.False,"URP must not replace the grazing-angle bias.");
+                Assert.That(light.shadows,Is.EqualTo(LightShadows.Soft));
+                Assert.That(light.shadowStrength,Is.EqualTo(.72f).Within(.001f));
+                Assert.That(light.shadowBias,Is.GreaterThanOrEqualTo(.5f));
+                Assert.That(light.shadowNormalBias,Is.GreaterThanOrEqualTo(.7f));
+            }
+            finally{Object.DestroyImmediate(go);}
+        }
+
+        [Test]
+        public void RegenerationAddsFuelWithoutPerStepLogs()
+        {
+            var go=new GameObject("Quiet regeneration regression");go.SetActive(false);
+            var fuel=GameType("FuelTank").GetProperty("SharedFuel");var before=fuel.GetValue(null);
+            int logs=0;Application.LogCallback count=(message,stack,type)=>{if(message.StartsWith("Added "))logs++;};
+            try
+            {
+                var car=go.AddComponent(GameType("CarControl"));fuel.SetValue(null,40f);
+                Application.logMessageReceived+=count;
+                for(int i=0;i<100;i++)Call(car,"AddFuelInternal",.01f,false);
+                Assert.That((float)fuel.GetValue(null),Is.EqualTo(41f).Within(.002f));
+                Assert.That(logs,Is.Zero);
+            }
+            finally{Application.logMessageReceived-=count;Object.DestroyImmediate(go);fuel.SetValue(null,before);}
+        }
+
         [TestCase(25f, 75f)]
         [TestCase(1000f, 100f)]
         [TestCase(-1f, 50f)]
