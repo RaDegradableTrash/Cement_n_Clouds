@@ -95,6 +95,7 @@ namespace Voyage.Lighting
             float horizonWeight = Mathf.Max(sunrise, sunset) * horizonIntensity * contribution;
 
             CurrentColor = Color.Lerp(baseColor, horizon, horizonWeight);
+            if (VoyageLookController.Instance != null) CurrentColor *= VoyageLookController.Instance.Current.fogTint;
             float authoredStart = Mathf.Lerp(nightStart, dayStart, daylight);
             float authoredEnd = Mathf.Lerp(nightEnd, dayEnd, daylight);
             // Keep the nearby driving view clear and spread mountain haze over

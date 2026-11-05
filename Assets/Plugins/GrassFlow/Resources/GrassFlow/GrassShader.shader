@@ -139,6 +139,7 @@ Shader "GrassFlow/Voyage/Grass"
             return half4(MixFog(leaf,input.fog),1);
         }
         half4 depthFrag(Varyings input) : SV_Target { return 0; }
+        half4 normalFrag(Varyings input) : SV_Target { return half4(normalize(input.groundNormal),0); }
         ENDHLSL
         Pass
         {
@@ -154,6 +155,21 @@ Shader "GrassFlow/Voyage/Grass"
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
+            ENDHLSL
+        }
+        Pass
+        {
+            Name "DepthNormals"
+            Tags { "LightMode"="DepthNormals" }
+            HLSLPROGRAM
+            #pragma target 4.5
+            #pragma vertex vert
+            #pragma fragment normalFrag
+            #pragma multi_compile_instancing
+            #pragma instancing_options procedural:setup
             ENDHLSL
         }
         Pass

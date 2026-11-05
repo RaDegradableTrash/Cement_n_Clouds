@@ -18,6 +18,13 @@ public sealed class ReferenceVehicleRuntimeBinder : MonoBehaviour
         DisableEmbeddedCameras();
         ConfigureChassisPhysics();
         NormalizeWheelPhysics();
+        var lighting=GetComponent<Voyage.Lighting.VoyageVehicleLighting>();
+        if(lighting==null) lighting=gameObject.AddComponent<Voyage.Lighting.VoyageVehicleLighting>();
+        lighting.Bind();
+        var monitor=Resources.Load<Material>("Looks/Monitor");
+        if(monitor!=null)
+            foreach(var part in GetComponentsInChildren<MeshRenderer>(true))
+                if(part.name=="S2") part.sharedMaterial=monitor;
 
         CarControl car = GetComponent<CarControl>();
         if (car == null) car = gameObject.AddComponent<CarControl>();

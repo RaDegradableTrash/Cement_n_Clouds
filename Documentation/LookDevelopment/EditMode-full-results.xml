@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="216" result="Failed(Child)" total="216" passed="204" failed="10" inconclusive="0" skipped="2" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="42.1337617">
+  <test-suite type="TestSuite" id="1000" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="216" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="42.133762" total="216" passed="204" failed="10" inconclusive="0" skipped="2" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1204" name="Voyage.ColliderTools.Editor.Tests.dll" fullname="C:/Users/Ragon/.codex/worktrees/a987/Voyage/Library/ScriptAssemblies/Voyage.ColliderTools.Editor.Tests.dll" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="41.753570" total="156" passed="144" failed="10" inconclusive="0" skipped="2" asserts="0">
+      <properties>
+        <property name="_PID" value="75824" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1205" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="41.749965" total="156" passed="144" failed="10" inconclusive="0" skipped="2" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1206" name="Tests" fullname="Voyage.Tests" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="41.746191" total="156" passed="144" failed="10" inconclusive="0" skipped="2" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <output><![CDATA[FBX TERRAIN // center tile ready; continuing background load (1 tiles)
+]]></output>
+          <test-suite type="TestSuite" id="1207" name="Editor" fullname="Voyage.Tests.Editor" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:11Z" duration="41.739778" total="156" passed="144" failed="10" inconclusive="0" skipped="2" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestFixture" id="1010" name="CharacterGroundingTests" fullname="Voyage.Tests.Editor.CharacterGroundingTests" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-05 23:25:41Z" end-time="2026-11-05 23:25:42Z" duration="0.587466" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1015" name="AirborneAndTeleportReleaseContactsAndCorrectionsDoNotAccumulate" fullname="Voyage.Tests.Editor.CharacterGroundingTests.AirborneAndTeleportReleaseContactsAndCorrectionsDoNotAccumulate" methodname="AirborneAndTeleportReleaseContactsAndCorrectionsDoNotAccumulate" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="2135432240" result="Passed" start-time="2026-11-05 23:25:41Z" end-time="2026-11-05 23:25:42Z" duration="0.502485" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1011" name="FeetAdaptToDifferentHeightsWithoutChangingBoneLengths" fullname="Voyage.Tests.Editor.CharacterGroundingTests.FeetAdaptToDifferentHeightsWithoutChangingBoneLengths" methodname="FeetAdaptToDifferentHeightsWithoutChangingBoneLengths" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="2115316195" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.005935" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1013" name="LargeDirectionChangeTurnsTheVisualGradually" fullname="Voyage.Tests.Editor.CharacterGroundingTests.LargeDirectionChangeTurnsTheVisualGradually" methodname="LargeDirectionChangeTurnsTheVisualGradually" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="1620041481" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.010398" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1017" name="MovingGaitsAlternateSupportAndKeepPlantedFootStable" fullname="Voyage.Tests.Editor.CharacterGroundingTests.MovingGaitsAlternateSupportAndKeepPlantedFootStable" methodname="MovingGaitsAlternateSupportAndKeepPlantedFootStable" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="1407888648" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.037487" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1014" name="PlantedFootStaysOnLedgeUntilItActuallyLifts" fullname="Voyage.Tests.Editor.CharacterGroundingTests.PlantedFootStaysOnLedgeUntilItActuallyLifts" methodname="PlantedFootStaysOnLedgeUntilItActuallyLifts" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="551856599" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.003141" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1016" name="SlopeAlignsFeetAndNoGroundDoesNotInventSupport" fullname="Voyage.Tests.Editor.CharacterGroundingTests.SlopeAlignsFeetAndNoGroundDoesNotInventSupport" methodname="SlopeAlignsFeetAndNoGroundDoesNotInventSupport" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="651033" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.006865" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1012" name="TurningKeepsOneFootFixedAndStepsTheOther" fullname="Voyage.Tests.Editor.CharacterGroundingTests.TurningKeepsOneFootFixedAndStepsTheOther" methodname="TurningKeepsOneFootFixedAndStepsTheOther" classname="Voyage.Tests.Editor.CharacterGroundingTests" runstate="Runnable" seed="794523308" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.007437" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1018" name="ColliderToolsTests" fullname="Voyage.Tests.Editor.ColliderToolsTests" classname="Voyage.Tests.Editor.ColliderToolsTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.019762" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1020" name="IsProblematicMeshCollider_DetectsDynamicAncestorRigidbody" fullname="Voyage.Tests.Editor.ColliderToolsTests.IsProblematicMeshCollider_DetectsDynamicAncestorRigidbody" methodname="IsProblematicMeshCollider_DetectsDynamicAncestorRigidbody" classname="Voyage.Tests.Editor.ColliderToolsTests" runstate="Runnable" seed="1323397808" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.004829" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1021" name="IsProblematicMeshCollider_OptionallySkipsDisabledObjects" fullname="Voyage.Tests.Editor.ColliderToolsTests.IsProblematicMeshCollider_OptionallySkipsDisabledObjects" methodname="IsProblematicMeshCollider_OptionallySkipsDisabledObjects" classname="Voyage.Tests.Editor.ColliderToolsTests" runstate="Runnable" seed="406025084" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001396" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1019" name="TryCalculateLocalBounds_TransformsChildVerticesIntoTargetSpace" fullname="Voyage.Tests.Editor.ColliderToolsTests.TryCalculateLocalBounds_TransformsChildVerticesIntoTargetSpace" methodname="TryCalculateLocalBounds_TransformsChildVerticesIntoTargetSpace" classname="Voyage.Tests.Editor.ColliderToolsTests" runstate="Runnable" seed="1055909784" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.002901" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1022" name="DayNightVehicleIssueTests" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" testcasecount="20" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.570014" total="20" passed="20" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1031" name="EmptyFuelShutdownPreservesDriveGearAndVelocityAndRefillRestarts" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.EmptyFuelShutdownPreservesDriveGearAndVelocityAndRefillRestarts" methodname="EmptyFuelShutdownPreservesDriveGearAndVelocityAndRefillRestarts" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="314639974" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.005375" asserts="0">
+                <properties />
+                <output><![CDATA[Added 25.00 fuel. Total: 25.00/100.00
+Engine auto-restarted due to fuel added!
+]]></output>
+              </test-case>
+              <test-case id="1032" name="EngineAudioIsSilentWithoutThrottleEvenAtHighRpm" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.EngineAudioIsSilentWithoutThrottleEvenAtHighRpm" methodname="EngineAudioIsSilentWithoutThrottleEvenAtHighRpm" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="10657527" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.036582" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1035" name="EngineReleasePlaysQuietingTailAndCanResume" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.EngineReleasePlaysQuietingTailAndCanResume" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.129729" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1033" name="EngineReleasePlaysQuietingTailAndCanResume(48000,2)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.EngineReleasePlaysQuietingTailAndCanResume(48000,2)" methodname="EngineReleasePlaysQuietingTailAndCanResume" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="939623524" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.068249" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1034" name="EngineReleasePlaysQuietingTailAndCanResume(44100,1)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.EngineReleasePlaysQuietingTailAndCanResume(44100,1)" methodname="EngineReleasePlaysQuietingTailAndCanResume" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1217272536" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.060155" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1044" name="InvalidCommandsAreRejected" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.003633" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1036" name="InvalidCommandsAreRejected(&quot;/time NaN&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time NaN&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="164194943" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001947" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1037" name="InvalidCommandsAreRejected(&quot;/time Infinity&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time Infinity&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="185302890" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000101" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1038" name="InvalidCommandsAreRejected(&quot;/time -1&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time -1&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="78671592" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000057" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1039" name="InvalidCommandsAreRejected(&quot;/time 25&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time 25&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1879381006" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000041" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1040" name="InvalidCommandsAreRejected(&quot;/time&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="496627897" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000041" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1041" name="InvalidCommandsAreRejected(&quot;/time 12 extra&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/time 12 extra&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1655818387" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000040" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1042" name="InvalidCommandsAreRejected(&quot;/fuel -5&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/fuel -5&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="322144846" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000039" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1043" name="InvalidCommandsAreRejected(&quot;/unknown 12&quot;)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.InvalidCommandsAreRejected(&quot;/unknown 12&quot;)" methodname="InvalidCommandsAreRejected" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1563452570" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000039" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1023" name="ManagedSunUsesItsOwnBiasAndKeepsShadows" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.ManagedSunUsesItsOwnBiasAndKeepsShadows" methodname="ManagedSunUsesItsOwnBiasAndKeepsShadows" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1624276668" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.002619" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1024" name="RegenerationAddsFuelWithoutPerStepLogs" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.RegenerationAddsFuelWithoutPerStepLogs" methodname="RegenerationAddsFuelWithoutPerStepLogs" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1295482061" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001030" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1030" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001515" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1025" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(25.0f,75.0f)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(25.0f,75.0f)" methodname="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1269419516" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000378" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1026" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(1000.0f,100.0f)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(1000.0f,100.0f)" methodname="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1986728868" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000062" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1027" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(-1.0f,50.0f)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(-1.0f,50.0f)" methodname="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="184607995" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000042" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1028" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(float.NaN,50.0f)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(float.NaN,50.0f)" methodname="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1616858390" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000036" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1029" name="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(float.PositiveInfinity,50.0f)" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity(float.PositiveInfinity,50.0f)" methodname="SharedFuelAcceptsOnlyFinitePositiveAmountsAndClampsCapacity" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="910362092" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000035" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1045" name="SkyAndTerrainRenderAcrossCycleWithoutCelestialMeshes" fullname="Voyage.Tests.Editor.DayNightVehicleIssueTests.SkyAndTerrainRenderAcrossCycleWithoutCelestialMeshes" methodname="SkyAndTerrainRenderAcrossCycleWithoutCelestialMeshes" classname="Voyage.Tests.Editor.DayNightVehicleIssueTests" runstate="Runnable" seed="1839476192" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.387234" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1046" name="DrivingHitchRegressionTests" fullname="Voyage.Tests.Editor.DrivingHitchRegressionTests" classname="Voyage.Tests.Editor.DrivingHitchRegressionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.037159" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1048" name="BackgroundTrackSavePreservesNewSamplesAndRetriesFailedWrites" fullname="Voyage.Tests.Editor.DrivingHitchRegressionTests.BackgroundTrackSavePreservesNewSamplesAndRetriesFailedWrites" methodname="BackgroundTrackSavePreservesNewSamplesAndRetriesFailedWrites" classname="Voyage.Tests.Editor.DrivingHitchRegressionTests" runstate="Runnable" seed="628776462" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.030767" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[Grass tracks could not be saved: Could not find a part of the path "C:\Users\Ragon\AppData\Local\Temp\VoyageTrackTest-e1162dc50679490bae6d77c4e027f157\missing\tracks.json.tmp".
+]]></output>
+              </test-case>
+              <test-case id="1047" name="CommandHistoryRestoresDraftAndClampsAtOldestEntry" fullname="Voyage.Tests.Editor.DrivingHitchRegressionTests.CommandHistoryRestoresDraftAndClampsAtOldestEntry" methodname="CommandHistoryRestoresDraftAndClampsAtOldestEntry" classname="Voyage.Tests.Editor.DrivingHitchRegressionTests" runstate="Runnable" seed="1979900650" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001252" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1049" name="EngineInputRegressionTests" fullname="Voyage.Tests.Editor.EngineInputRegressionTests" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" testcasecount="14" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.046501" total="14" passed="14" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1050" name="BrakeWinsWhenWAndSAreHeldTogether" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.BrakeWinsWhenWAndSAreHeldTogether" methodname="BrakeWinsWhenWAndSAreHeldTogether" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="325727796" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.005226" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1063" name="FocusLossImmediatelyClearsDriveAndSuspendsSound" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.FocusLossImmediatelyClearsDriveAndSuspendsSound" methodname="FocusLossImmediatelyClearsDriveAndSuspendsSound" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="2030275380" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001459" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1056" name="HandbrakeSuppressesDriveAndWReleaseClearsTorque" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.HandbrakeSuppressesDriveAndWReleaseClearsTorque" methodname="HandbrakeSuppressesDriveAndWReleaseClearsTorque" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="543399017" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000589" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1061" name="LosingPowerOrControlClearsPreviouslyHeldW" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.LosingPowerOrControlClearsPreviouslyHeldW" methodname="LosingPowerOrControlClearsPreviouslyHeldW" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1211496532" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000587" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1062" name="ShiftCutsTorqueButDoesNotInterruptHeldWAudio" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.ShiftCutsTorqueButDoesNotInterruptHeldWAudio" methodname="ShiftCutsTorqueButDoesNotInterruptHeldWAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="29999128" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000871" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1064" name="ShortTapRetainsFullTailAndSuspensionFreezesAudio" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.ShortTapRetainsFullTailAndSuspensionFreezesAudio" methodname="ShortTapRetainsFullTailAndSuspensionFreezesAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="381496142" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.026746" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1060" name="UnavailableEngineCannotDriveOrRequestAudio" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.UnavailableEngineCannotDriveOrRequestAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.002871" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1057" name="UnavailableEngineCannotDriveOrRequestAudio(&quot;engineOn&quot;)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.UnavailableEngineCannotDriveOrRequestAudio(&quot;engineOn&quot;)" methodname="UnavailableEngineCannotDriveOrRequestAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="184903518" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.001214" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1058" name="UnavailableEngineCannotDriveOrRequestAudio(&quot;electricalPowerOn&quot;)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.UnavailableEngineCannotDriveOrRequestAudio(&quot;electricalPowerOn&quot;)" methodname="UnavailableEngineCannotDriveOrRequestAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1890506027" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000349" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1059" name="UnavailableEngineCannotDriveOrRequestAudio(&quot;fuel&quot;)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.UnavailableEngineCannotDriveOrRequestAudio(&quot;fuel&quot;)" methodname="UnavailableEngineCannotDriveOrRequestAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1422058695" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000272" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1065" name="VisualInitializationCannotReplaceReferenceEngineAudio" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.VisualInitializationCannotReplaceReferenceEngineAudio" methodname="VisualInitializationCannotReplaceReferenceEngineAudio" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1065946802" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.004000" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1055" name="WUsesGearDirectionButKeepsEngineDemandInNeutral" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.WUsesGearDirectionButKeepsEngineDemandInNeutral" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.002648" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1051" name="WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Drive&quot;,-1)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Drive&quot;,-1)" methodname="WUsesGearDirectionButKeepsEngineDemandInNeutral" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="91147736" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000750" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1052" name="WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Reverse&quot;,1)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Reverse&quot;,1)" methodname="WUsesGearDirectionButKeepsEngineDemandInNeutral" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="364943411" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000291" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1053" name="WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Neutral&quot;,0)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Neutral&quot;,0)" methodname="WUsesGearDirectionButKeepsEngineDemandInNeutral" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1868238544" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000324" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1054" name="WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Park&quot;,0)" fullname="Voyage.Tests.Editor.EngineInputRegressionTests.WUsesGearDirectionButKeepsEngineDemandInNeutral(&quot;Park&quot;,0)" methodname="WUsesGearDirectionButKeepsEngineDemandInNeutral" classname="Voyage.Tests.Editor.EngineInputRegressionTests" runstate="Runnable" seed="1905614804" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:42Z" duration="0.000283" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1066" name="EngineShutdownRegressionTests" fullname="Voyage.Tests.Editor.EngineShutdownRegressionTests" classname="Voyage.Tests.Editor.EngineShutdownRegressionTests" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-11-05 23:25:49Z" end-time="2026-11-05 23:25:50Z" duration="0.316403" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1067" name="RestartCancelsAnOlderDelayedShutdown" fullname="Voyage.Tests.Editor.EngineShutdownRegressionTests.RestartCancelsAnOlderDelayedShutdown" methodname="RestartCancelsAnOlderDelayedShutdown" classname="Voyage.Tests.Editor.EngineShutdownRegressionTests" runstate="Runnable" seed="579425269" result="Passed" start-time="2026-11-05 23:25:42Z" end-time="2026-11-05 23:25:50Z" duration="7.192415" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1068" name="ExplorerTests" fullname="Voyage.Tests.Editor.ExplorerTests" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.191101" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1073" name="ControllerWalksAndJumpsWithoutDiagonalSpeedBoost" fullname="Voyage.Tests.Editor.ExplorerTests.ControllerWalksAndJumpsWithoutDiagonalSpeedBoost" methodname="ControllerWalksAndJumpsWithoutDiagonalSpeedBoost" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="1557391482" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.168905" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1071" name="DistanceSelectsTargetAndTransitionsQuestionToExclamation" fullname="Voyage.Tests.Editor.ExplorerTests.DistanceSelectsTargetAndTransitionsQuestionToExclamation" methodname="DistanceSelectsTargetAndTransitionsQuestionToExclamation" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="1127592561" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.010666" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1074" name="JumpSequenceOnlyChangesForAcceptedGroundedJumps" fullname="Voyage.Tests.Editor.ExplorerTests.JumpSequenceOnlyChangesForAcceptedGroundedJumps" methodname="JumpSequenceOnlyChangesForAcceptedGroundedJumps" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="20464710" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.002565" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1069" name="PrefabsHaveSkinnedCharactersAndSeparateCollisionRoles" fullname="Voyage.Tests.Editor.ExplorerTests.PrefabsHaveSkinnedCharactersAndSeparateCollisionRoles" methodname="PrefabsHaveSkinnedCharactersAndSeparateCollisionRoles" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="687256072" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.003932" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1070" name="SprintMoveUsesHigherSpeed" fullname="Voyage.Tests.Editor.ExplorerTests.SprintMoveUsesHigherSpeed" methodname="SprintMoveUsesHigherSpeed" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="1327405246" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.001050" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1072" name="WallsAndDisabledObjectsCannotBeInteractedWith" fullname="Voyage.Tests.Editor.ExplorerTests.WallsAndDisabledObjectsCannotBeInteractedWith" methodname="WallsAndDisabledObjectsCannotBeInteractedWith" classname="Voyage.Tests.Editor.ExplorerTests" runstate="Runnable" seed="2083238647" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.002092" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1075" name="GrassContactTests" fullname="Voyage.Tests.Editor.GrassContactTests" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.233246" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1078" name="ContactIsAlignedDirectionalAndContinuous" fullname="Voyage.Tests.Editor.GrassContactTests.ContactIsAlignedDirectionalAndContinuous" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.053060" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1076" name="ContactIsAlignedDirectionalAndContinuous(True)" fullname="Voyage.Tests.Editor.GrassContactTests.ContactIsAlignedDirectionalAndContinuous(True)" methodname="ContactIsAlignedDirectionalAndContinuous" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="1292002125" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.029227" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1077" name="ContactIsAlignedDirectionalAndContinuous(False)" fullname="Voyage.Tests.Editor.GrassContactTests.ContactIsAlignedDirectionalAndContinuous(False)" methodname="ContactIsAlignedDirectionalAndContinuous" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="1726767514" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.023085" asserts="0">
+                  <properties />
+                  <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+                </test-case>
+              </test-suite>
+              <test-case id="1079" name="DecayAndScrollPreserveWorldPositionAndDirection" fullname="Voyage.Tests.Editor.GrassContactTests.DecayAndScrollPreserveWorldPositionAndDirection" methodname="DecayAndScrollPreserveWorldPositionAndDirection" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="44183162" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.014542" asserts="0">
+                <properties />
+                <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+              </test-case>
+              <test-case id="1086" name="DistantFieldRetainsVisibleTracksOutsideNearWindow" fullname="Voyage.Tests.Editor.GrassContactTests.DistantFieldRetainsVisibleTracksOutsideNearWindow" methodname="DistantFieldRetainsVisibleTracksOutsideNearWindow" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="731243626" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.053333" asserts="0">
+                <properties />
+                <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+              </test-case>
+              <test-case id="1080" name="HistoryRestoresTracksAfterLeavingGpuWindow" fullname="Voyage.Tests.Editor.GrassContactTests.HistoryRestoresTracksAfterLeavingGpuWindow" methodname="HistoryRestoresTracksAfterLeavingGpuWindow" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="2128394273" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.028227" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1085" name="RemoteObjectCanPressAndBrownGrassWithoutEnteringNearWindow" fullname="Voyage.Tests.Editor.GrassContactTests.RemoteObjectCanPressAndBrownGrassWithoutEnteringNearWindow" methodname="RemoteObjectCanPressAndBrownGrassWithoutEnteringNearWindow" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="940017645" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.016767" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1081" name="ReturningTrackRecoversByAgeNotCurrentVehicleMotion" fullname="Voyage.Tests.Editor.GrassContactTests.ReturningTrackRecoversByAgeNotCurrentVehicleMotion" methodname="ReturningTrackRecoversByAgeNotCurrentVehicleMotion" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="1285911016" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.010880" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1084" name="StrongCollisionGraduallyBrownsButEmptyFieldDoesNot" fullname="Voyage.Tests.Editor.GrassContactTests.StrongCollisionGraduallyBrownsButEmptyFieldDoesNot" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.053388" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1082" name="StrongCollisionGraduallyBrownsButEmptyFieldDoesNot(True)" fullname="Voyage.Tests.Editor.GrassContactTests.StrongCollisionGraduallyBrownsButEmptyFieldDoesNot(True)" methodname="StrongCollisionGraduallyBrownsButEmptyFieldDoesNot" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="433114351" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.020134" asserts="0">
+                  <properties />
+                  <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+                </test-case>
+                <test-case id="1083" name="StrongCollisionGraduallyBrownsButEmptyFieldDoesNot(False)" fullname="Voyage.Tests.Editor.GrassContactTests.StrongCollisionGraduallyBrownsButEmptyFieldDoesNot(False)" methodname="StrongCollisionGraduallyBrownsButEmptyFieldDoesNot" classname="Voyage.Tests.Editor.GrassContactTests" runstate="Runnable" seed="1390707654" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:50Z" duration="0.014899" asserts="0">
+                  <properties />
+                  <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1087" name="GrassFlowPainterTests" fullname="Voyage.Tests.Editor.GrassFlowPainterTests" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:58Z" duration="7.993993" total="23" passed="21" failed="2" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1094" name="AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" methodname="AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="246639826" result="Passed" start-time="2026-11-05 23:25:50Z" end-time="2026-11-05 23:25:55Z" duration="5.012184" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1095" name="AppliedRoadClearsGrassButLaterGrassStrokeWins" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AppliedRoadClearsGrassButLaterGrassStrokeWins" methodname="AppliedRoadClearsGrassButLaterGrassStrokeWins" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="138831984" result="Passed" start-time="2026-11-05 23:25:55Z" end-time="2026-11-05 23:25:55Z" duration="0.038508" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1088" name="AssigningAuthoredPatchDoesNotTransferOwnershipToTile" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AssigningAuthoredPatchDoesNotTransferOwnershipToTile" methodname="AssigningAuthoredPatchDoesNotTransferOwnershipToTile" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="5541123" result="Failed" label="Error" start-time="2026-11-05 23:25:55Z" end-time="2026-11-05 23:25:55Z" duration="0.093656" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.GrassFlowPainterTests.Call (System.Object value, System.String method, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:21
+  at Voyage.Tests.Editor.GrassFlowPainterTests.AssigningAuthoredPatchDoesNotTransferOwnershipToTile () [0x0003e] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:45
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1101" name="BrushCrossesTileBoundarySymmetrically" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.BrushCrossesTileBoundarySymmetrically" methodname="BrushCrossesTileBoundarySymmetrically" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1036795022" result="Passed" start-time="2026-11-05 23:25:55Z" end-time="2026-11-05 23:25:55Z" duration="0.058737" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1100" name="BrushErasesAddsAndUndoRestoresTexture" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.BrushErasesAddsAndUndoRestoresTexture" methodname="BrushErasesAddsAndUndoRestoresTexture" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="735171756" result="Passed" start-time="2026-11-05 23:25:55Z" end-time="2026-11-05 23:25:55Z" duration="0.034159" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1092" name="DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" methodname="DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="342037834" result="Passed" start-time="2026-11-05 23:25:55Z" end-time="2026-11-05 23:25:56Z" duration="0.719081" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1099" name="DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" methodname="DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="35189166" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.051032" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1111" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.483923" total="5" passed="4" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1106" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,12.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,12.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1713069378" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.368847" asserts="0">
+                  <properties />
+                  <output><![CDATA[CLOUDS // pass active; shader=Hidden/Voyage/VolumetricClouds, height=900-1800, coverage=0.52, density=1.15, noise=0.00125, steps=64/4.
+CLOUDS // RenderGraph recorded the cloud raymarch and composite passes.
+]]></output>
+                </test-case>
+                <test-case id="1107" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="959659513" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.025172" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1108" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,6000.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,6000.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="576765534" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.037500" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1109" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(True,180.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(True,180.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="417991430" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.022729" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1110" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,True)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,True)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="463090461" result="Failed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:56Z" duration="0.020297" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[  Foliage must not produce dark canopy contours.
+  Expected: less than 4.99999987E-05f
+  But was:  8.06099852E-05f
+]]></message>
+                    <stack-trace><![CDATA[at Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround (System.Boolean continuousGround, System.Single distance, System.Boolean foliage) [0x0042e] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:731
+]]></stack-trace>
+                  </failure>
+                </test-case>
+              </test-suite>
+              <test-case id="1104" name="GpuRenderingRespondsToSavedDensityAndDayNight" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.GpuRenderingRespondsToSavedDensityAndDayNight" methodname="GpuRenderingRespondsToSavedDensityAndDayNight" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="750668624" result="Passed" start-time="2026-11-05 23:25:56Z" end-time="2026-11-05 23:25:57Z" duration="0.201422" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1093" name="LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" methodname="LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1469415930" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.006852" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1102" name="PaintCannotCreateGrassOutsideMeshCoverage" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.PaintCannotCreateGrassOutsideMeshCoverage" methodname="PaintCannotCreateGrassOutsideMeshCoverage" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="899464555" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.024841" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1105" name="PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" methodname="PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="164580304" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.139379" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1090" name="RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" methodname="RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="565459402" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.003627" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1096" name="RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" methodname="RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="618510830" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.041582" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1103" name="StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" methodname="StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="164709390" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.003155" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1097" name="TerrainEditingViewKeepsZoomPivotAboveMountains" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.TerrainEditingViewKeepsZoomPivotAboveMountains" methodname="TerrainEditingViewKeepsZoomPivotAboveMountains" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="259200547" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.323590" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1089" name="UnpaintedFarTileBuildsGrassFromTransformedMesh" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.UnpaintedFarTileBuildsGrassFromTransformedMesh" methodname="UnpaintedFarTileBuildsGrassFromTransformedMesh" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1691034550" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:57Z" duration="0.005432" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1091" name="WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" methodname="WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="2118016469" result="Passed" start-time="2026-11-05 23:25:57Z" end-time="2026-11-05 23:25:58Z" duration="0.646865" asserts="0">
+                <properties />
+                <output><![CDATA[Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-1_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-1_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_3
+]]></output>
+              </test-case>
+              <test-case id="1098" name="WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" methodname="WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="805828860" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.093001" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1112" name="LookDevelopmentTests" fullname="Voyage.Tests.Editor.LookDevelopmentTests" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" testcasecount="7" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.107683" total="7" passed="7" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1113" name="BlendKeepsBothEndpointsAndInterpolatesExposure" fullname="Voyage.Tests.Editor.LookDevelopmentTests.BlendKeepsBothEndpointsAndInterpolatesExposure" methodname="BlendKeepsBothEndpointsAndInterpolatesExposure" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="1810939775" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.000870" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1119" name="CharacterShaderPreservesAuxiliaryPassesAndCompiles" fullname="Voyage.Tests.Editor.LookDevelopmentTests.CharacterShaderPreservesAuxiliaryPassesAndCompiles" methodname="CharacterShaderPreservesAuxiliaryPassesAndCompiles" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="1553922617" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.001215" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1114" name="ManualChoiceOverridesSceneAndClearRestoresScene" fullname="Voyage.Tests.Editor.LookDevelopmentTests.ManualChoiceOverridesSceneAndClearRestoresScene" methodname="ManualChoiceOverridesSceneAndClearRestoresScene" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="676368016" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.001328" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1117" name="NightLookPublishesReadableEnvironmentAfterClockUpdate" fullname="Voyage.Tests.Editor.LookDevelopmentTests.NightLookPublishesReadableEnvironmentAfterClockUpdate" methodname="NightLookPublishesReadableEnvironmentAfterClockUpdate" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="1465954764" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.002135" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1115" name="ReferenceVehicleHeadlightBindingUsesAuthoredFixtures" fullname="Voyage.Tests.Editor.LookDevelopmentTests.ReferenceVehicleHeadlightBindingUsesAuthoredFixtures" methodname="ReferenceVehicleHeadlightBindingUsesAuthoredFixtures" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="694172349" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.002578" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1118" name="SharedEnvironmentShadersHaveDepthNormalsAndNoCompileErrors" fullname="Voyage.Tests.Editor.LookDevelopmentTests.SharedEnvironmentShadersHaveDepthNormalsAndNoCompileErrors" methodname="SharedEnvironmentShadersHaveDepthNormalsAndNoCompileErrors" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="1592382309" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.000462" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1116" name="StudioEmittersKeepEmissionAfterAssetImport" fullname="Voyage.Tests.Editor.LookDevelopmentTests.StudioEmittersKeepEmissionAfterAssetImport" methodname="StudioEmittersKeepEmissionAfterAssetImport" classname="Voyage.Tests.Editor.LookDevelopmentTests" runstate="Runnable" seed="1821530603" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:58Z" duration="0.001433" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1120" name="LullabyCharacterTests" fullname="Voyage.Tests.Editor.LullabyCharacterTests" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:59Z" duration="0.787770" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1128" name="CharacterFitsColliderFacesForwardAndAnimationsDeformBones" fullname="Voyage.Tests.Editor.LullabyCharacterTests.CharacterFitsColliderFacesForwardAndAnimationsDeformBones" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:59Z" duration="0.741956" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1126" name="CharacterFitsColliderFacesForwardAndAnimationsDeformBones(&quot;ExplorerPlayer&quot;)" fullname="Voyage.Tests.Editor.LullabyCharacterTests.CharacterFitsColliderFacesForwardAndAnimationsDeformBones(&quot;ExplorerPlayer&quot;)" methodname="CharacterFitsColliderFacesForwardAndAnimationsDeformBones" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="258291683" result="Passed" start-time="2026-11-05 23:25:58Z" end-time="2026-11-05 23:25:59Z" duration="0.471390" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1127" name="CharacterFitsColliderFacesForwardAndAnimationsDeformBones(&quot;NpcCapsule&quot;)" fullname="Voyage.Tests.Editor.LullabyCharacterTests.CharacterFitsColliderFacesForwardAndAnimationsDeformBones(&quot;NpcCapsule&quot;)" methodname="CharacterFitsColliderFacesForwardAndAnimationsDeformBones" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="2063464625" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.269761" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1121" name="ExportedClipsHaveCorrectLoopAndRootMotionSettings" fullname="Voyage.Tests.Editor.LullabyCharacterTests.ExportedClipsHaveCorrectLoopAndRootMotionSettings" methodname="ExportedClipsHaveCorrectLoopAndRootMotionSettings" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="1426847982" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.010555" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1125" name="JumpTransitionsFollowPhysicsAndCanBeInterrupted" fullname="Voyage.Tests.Editor.LullabyCharacterTests.JumpTransitionsFollowPhysicsAndCanBeInterrupted" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.031492" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1122" name="JumpTransitionsFollowPhysicsAndCanBeInterrupted(0.0f)" fullname="Voyage.Tests.Editor.LullabyCharacterTests.JumpTransitionsFollowPhysicsAndCanBeInterrupted(0.0f)" methodname="JumpTransitionsFollowPhysicsAndCanBeInterrupted" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="89600763" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.012165" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1123" name="JumpTransitionsFollowPhysicsAndCanBeInterrupted(1.0f)" fullname="Voyage.Tests.Editor.LullabyCharacterTests.JumpTransitionsFollowPhysicsAndCanBeInterrupted(1.0f)" methodname="JumpTransitionsFollowPhysicsAndCanBeInterrupted" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="2067123334" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.005239" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1124" name="JumpTransitionsFollowPhysicsAndCanBeInterrupted(2.0f)" fullname="Voyage.Tests.Editor.LullabyCharacterTests.JumpTransitionsFollowPhysicsAndCanBeInterrupted(2.0f)" methodname="JumpTransitionsFollowPhysicsAndCanBeInterrupted" classname="Voyage.Tests.Editor.LullabyCharacterTests" runstate="Runnable" seed="1460540290" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.004490" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1129" name="OpenIssueRegressionTests" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-11-05 23:26:29Z" end-time="2026-11-05 23:27:08Z" duration="39.097531" total="19" passed="11" failed="8" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1135" name="AuthoredSixtySecondDayNowLastsFourMinutes" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.AuthoredSixtySecondDayNowLastsFourMinutes" methodname="AuthoredSixtySecondDayNowLastsFourMinutes" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="499747756" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.001676" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1145" name="CameraCannotOrbitThroughGroundOrCloseWall" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.007314" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1141" name="CameraCannotOrbitThroughGroundOrCloseWall(False,False)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(False,False)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="962085685" result="Failed" label="Error" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.002011" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1142" name="CameraCannotOrbitThroughGroundOrCloseWall(False,True)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(False,True)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1547695002" result="Failed" label="Error" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.000817" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1143" name="CameraCannotOrbitThroughGroundOrCloseWall(True,False)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(True,False)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="2073225019" result="Failed" label="Error" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.000594" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1144" name="CameraCannotOrbitThroughGroundOrCloseWall(True,True)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(True,True)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="292211702" result="Failed" label="Error" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.000556" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+              </test-suite>
+              <test-case id="1146" name="CameraEnablesFullResolutionEdgeAntialiasing" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraEnablesFullResolutionEdgeAntialiasing" methodname="CameraEnablesFullResolutionEdgeAntialiasing" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="2100491910" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.003023" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1133" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.008088" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1130" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(1.0f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(1.0f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="545264653" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.004022" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1131" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.0f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.0f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="826950414" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.000547" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1132" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.4f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.4f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1953389359" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.000162" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1139" name="GrassDrawRangeFollowsTheDrivingCameraZoom" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.GrassDrawRangeFollowsTheDrivingCameraZoom" methodname="GrassDrawRangeFollowsTheDrivingCameraZoom" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="617036840" result="Failed" label="Error" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.001697" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                  <stack-trace><![CDATA[  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.GrassDrawRangeFollowsTheDrivingCameraZoom () [0x000e0] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:147
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1140" name="MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" methodname="MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1314002815" result="Failed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:25:59Z" duration="0.001324" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[  Fog should still blend distant terrain into the horizon.
+  Expected: in range (6500,10000)
+  But was:  20000.0f
+]]></message>
+                  <stack-trace><![CDATA[at Voyage.Tests.Editor.OpenIssueRegressionTests.MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle () [0x000a3] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:169
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1147" name="MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" methodname="MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1313924638" result="Passed" start-time="2026-11-05 23:25:59Z" end-time="2026-11-05 23:26:05Z" duration="5.642099" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1136" name="ReferenceVehicleCanZoomToTwoHundredMetres" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.ReferenceVehicleCanZoomToTwoHundredMetres" methodname="ReferenceVehicleCanZoomToTwoHundredMetres" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="517985384" result="Passed" start-time="2026-11-05 23:26:05Z" end-time="2026-11-05 23:26:05Z" duration="0.006076" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1134" name="ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" methodname="ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="2032089328" result="Failed" start-time="2026-11-05 23:26:05Z" end-time="2026-11-05 23:26:05Z" duration="0.008478" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[  Yaw correction must not fight active steering input.
+  Expected: 2.0f +/- 9.99999975E-05f
+  But was:  0.0f
+]]></message>
+                  <stack-trace><![CDATA[at Voyage.Tests.Editor.OpenIssueRegressionTests.ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch () [0x000e6] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:62
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1148" name="SampleSceneCreatesTheVehicleAfterStreamingStartup" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.SampleSceneCreatesTheVehicleAfterStreamingStartup" methodname="SampleSceneCreatesTheVehicleAfterStreamingStartup" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="76410828" result="Passed" start-time="2026-11-05 23:26:05Z" end-time="2026-11-05 23:26:15Z" duration="10.323712" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[VOYAGE_STARTUP_PROFILE frames=2382 medianMs=0.92 p95Ms=2.40 maxMs=650.08 grassPreparePeakMs=18.461 grassMeshSurfacePeakMs=0.000 grassSurfaceBinningPeakMs=0.000 grassGeneratePeakMs=0.000 terrainInstantiatePeakMs=0.344 terrainUnloadPeakMs=0.000 collisionPeakMs=0.058 streamUpdatePeakMs=1.266 lodScanPeakMs=1.262 prefabLoadPeakMs=17.325 tileAwakePeakMs=0.263 grassInitPeakMs=1.097
+VOYAGE_RUNTIME_PROFILE frames=180 medianMs=0.83 p95Ms=1.18 maxMs=3.37 terrainTiles=95 grassFlowTiles=4 interactiveGrassTiles=96 interactiveGrassBuilt=0 grassPrepareAvgMs=0.001 grassPreparePeakMs=0.002 grassMeshSurfacePeakMs=0.000 grassSurfaceBinningPeakMs=0.000 grassGeneratePeakMs=0.000 grassCullAvgMs=0.000 grassCullPeakMs=0.000 grassContactAvgMs=0.060 grassContactPeakMs=0.164 grassInitAvgMs=0.000 grassInitPeakMs=0.000 terrainInstantiateAvgMs=0.000 terrainInstantiatePeakMs=0.000
+]]></output>
+              </test-case>
+              <test-case id="1149" name="SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" methodname="SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="828472655" result="Failed" label="Error" start-time="2026-11-05 23:26:15Z" end-time="2026-11-05 23:26:23Z" duration="8.175780" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                  <stack-trace><![CDATA[  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests+<SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom>d__19.MoveNext () [0x004ca] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:431
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@1405238725ab\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1137" name="VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" methodname="VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="796241361" result="Passed" start-time="2026-11-05 23:26:23Z" end-time="2026-11-05 23:26:23Z" duration="0.010483" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1150" name="VehicleTerrainStreamingProfilesContinuousTileCrossings" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleTerrainStreamingProfilesContinuousTileCrossings" methodname="VehicleTerrainStreamingProfilesContinuousTileCrossings" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1650810156" result="Passed" start-time="2026-11-05 23:26:23Z" end-time="2026-11-05 23:27:08Z" duration="45.130859" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[VOYAGE_STREAMING_PROFILE started=True routeTiles=7 crossedBoundaries=8 loadedTiles=107 movementSeconds=35.2 framesOver16Ms=0 medianMs=0.82 p95Ms=1.17 maxMs=12.19 terrainAwakePeakMs=0.095 prefabAssetLoadPeakMs=8.153 instantiatePeakMs=0.025 unloadPeakMs=0.319 collisionPeakMs=0.059 streamUpdatePeakMs=0.826 lodScanPeakMs=0.227 grassInitPeakMs=0.043 grassPreparePeakMs=6.112 grassCullPeakMs=0.000
+]]></output>
+              </test-case>
+              <test-case id="1138" name="VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" methodname="VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="457191856" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.006756" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1151" name="TerrainCacheValidationTests" fullname="Voyage.Tests.Editor.TerrainCacheValidationTests" classname="Voyage.Tests.Editor.TerrainCacheValidationTests" runstate="Runnable" testcasecount="2" result="Skipped" label="Ignored" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.005554" total="2" passed="0" failed="0" inconclusive="0" skipped="2" asserts="0">
+              <properties />
+              <reason>
+                <message><![CDATA[One or more child tests were ignored]]></message>
+              </reason>
+              <test-case id="1153" name="IncrementalValidationMatchesBuildFingerprint" fullname="Voyage.Tests.Editor.TerrainCacheValidationTests.IncrementalValidationMatchesBuildFingerprint" methodname="IncrementalValidationMatchesBuildFingerprint" classname="Voyage.Tests.Editor.TerrainCacheValidationTests" runstate="Runnable" seed="1734829877" result="Skipped" label="Ignored" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.003607" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <reason>
+                  <message><![CDATA[Requires an existing terrain build cache; tests never build or modify it.]]></message>
+                </reason>
+              </test-case>
+              <test-case id="1152" name="PackageValidationYieldsBeforeWalkingTileDependencies" fullname="Voyage.Tests.Editor.TerrainCacheValidationTests.PackageValidationYieldsBeforeWalkingTileDependencies" methodname="PackageValidationYieldsBeforeWalkingTileDependencies" classname="Voyage.Tests.Editor.TerrainCacheValidationTests" runstate="Runnable" seed="479607695" result="Skipped" label="Ignored" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.000658" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <reason>
+                  <message><![CDATA[Requires an existing terrain build cache; tests never build or modify it.]]></message>
+                </reason>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1154" name="TerrainCollisionPreparationTests" fullname="Voyage.Tests.Editor.TerrainCollisionPreparationTests" classname="Voyage.Tests.Editor.TerrainCollisionPreparationTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.018678" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1156" name="LargeSlopedTrianglesKeepSurfaceAndWindingWithBoundedEdges" fullname="Voyage.Tests.Editor.TerrainCollisionPreparationTests.LargeSlopedTrianglesKeepSurfaceAndWindingWithBoundedEdges" methodname="LargeSlopedTrianglesKeepSurfaceAndWindingWithBoundedEdges" classname="Voyage.Tests.Editor.TerrainCollisionPreparationTests" runstate="Runnable" seed="1441788025" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.004623" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1155" name="ReportedTerrainTileKeepsPreparedCollisionAcrossAwakeAndLods" fullname="Voyage.Tests.Editor.TerrainCollisionPreparationTests.ReportedTerrainTileKeepsPreparedCollisionAcrossAwakeAndLods" methodname="ReportedTerrainTileKeepsPreparedCollisionAcrossAwakeAndLods" classname="Voyage.Tests.Editor.TerrainCollisionPreparationTests" runstate="Runnable" seed="1347025776" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.012560" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1157" name="SmallTrianglesReuseOriginalArrays" fullname="Voyage.Tests.Editor.TerrainCollisionPreparationTests.SmallTrianglesReuseOriginalArrays" methodname="SmallTrianglesReuseOriginalArrays" classname="Voyage.Tests.Editor.TerrainCollisionPreparationTests" runstate="Runnable" seed="1101213528" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.000445" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1158" name="TerrainPackageTests" fullname="Voyage.Tests.Editor.TerrainPackageTests" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:11Z" duration="2.356764" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1162" name="EditorLoadsMigratedTileWithCollisionAndLods" fullname="Voyage.Tests.Editor.TerrainPackageTests.EditorLoadsMigratedTileWithCollisionAndLods" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.013624" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1159" name="EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_0_0&quot;)" fullname="Voyage.Tests.Editor.TerrainPackageTests.EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_0_0&quot;)" methodname="EditorLoadsMigratedTileWithCollisionAndLods" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" seed="1020143712" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.001510" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1160" name="EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_8_8&quot;)" fullname="Voyage.Tests.Editor.TerrainPackageTests.EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_8_8&quot;)" methodname="EditorLoadsMigratedTileWithCollisionAndLods" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" seed="855808861" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.006018" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1161" name="EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_-20_-30&quot;)" fullname="Voyage.Tests.Editor.TerrainPackageTests.EditorLoadsMigratedTileWithCollisionAndLods(&quot;TerrainSystem/GeneratedTiles/Terrain_-20_-30&quot;)" methodname="EditorLoadsMigratedTileWithCollisionAndLods" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" seed="1475981054" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:08Z" duration="0.005426" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1163" name="EveryIndexedTileRemainsAvailableOutsideResources" fullname="Voyage.Tests.Editor.TerrainPackageTests.EveryIndexedTileRemainsAvailableOutsideResources" methodname="EveryIndexedTileRemainsAvailableOutsideResources" classname="Voyage.Tests.Editor.TerrainPackageTests" runstate="Runnable" seed="672573843" result="Passed" start-time="2026-11-05 23:27:08Z" end-time="2026-11-05 23:27:11Z" duration="2.342230" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1164" name="TerrainStreamingTests" fullname="Voyage.Tests.Editor.TerrainStreamingTests" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" testcasecount="20" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.056139" total="20" passed="20" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1180" name="BorderActivationUsesOneSharedWorkSlotPerFrame" fullname="Voyage.Tests.Editor.TerrainStreamingTests.BorderActivationUsesOneSharedWorkSlotPerFrame" methodname="BorderActivationUsesOneSharedWorkSlotPerFrame" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1894856636" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002851" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1181" name="CollisionRetreatMarginPreventsBoundaryChatter" fullname="Voyage.Tests.Editor.TerrainStreamingTests.CollisionRetreatMarginPreventsBoundaryChatter" methodname="CollisionRetreatMarginPreventsBoundaryChatter" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1656492977" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000669" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1176" name="DensityIsContinuousAndMonotonicAcrossFormerLodBoundaries" fullname="Voyage.Tests.Editor.TerrainStreamingTests.DensityIsContinuousAndMonotonicAcrossFormerLodBoundaries" methodname="DensityIsContinuousAndMonotonicAcrossFormerLodBoundaries" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="397447441" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.008604" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1179" name="GpuGrassSelectionMatchesCpuIncludingNegativeCoordinates" fullname="Voyage.Tests.Editor.TerrainStreamingTests.GpuGrassSelectionMatchesCpuIncludingNegativeCoordinates" methodname="GpuGrassSelectionMatchesCpuIncludingNegativeCoordinates" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1596484891" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.007315" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1171" name="GrassLodChangesPreserveVisibility" fullname="Voyage.Tests.Editor.TerrainStreamingTests.GrassLodChangesPreserveVisibility" methodname="GrassLodChangesPreserveVisibility" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1740485622" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001057" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1169" name="InitialLodMatchesNextUpdate" fullname="Voyage.Tests.Editor.TerrainStreamingTests.InitialLodMatchesNextUpdate" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002522" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1165" name="InitialLodMatchesNextUpdate(50.0f,0)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.InitialLodMatchesNextUpdate(50.0f,0)" methodname="InitialLodMatchesNextUpdate" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1380661377" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000955" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1166" name="InitialLodMatchesNextUpdate(150.0f,1)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.InitialLodMatchesNextUpdate(150.0f,1)" methodname="InitialLodMatchesNextUpdate" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="823511335" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000180" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1167" name="InitialLodMatchesNextUpdate(350.0f,2)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.InitialLodMatchesNextUpdate(350.0f,2)" methodname="InitialLodMatchesNextUpdate" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="2067159729" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000145" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1168" name="InitialLodMatchesNextUpdate(800.0f,3)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.InitialLodMatchesNextUpdate(800.0f,3)" methodname="InitialLodMatchesNextUpdate" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1035404676" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000134" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1170" name="LodDeadBandDoesNotChatter" fullname="Voyage.Tests.Editor.TerrainStreamingTests.LodDeadBandDoesNotChatter" methodname="LodDeadBandDoesNotChatter" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1443645872" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000617" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1172" name="PrefetchedGrassCanUpdateBeforeInitialization" fullname="Voyage.Tests.Editor.TerrainStreamingTests.PrefetchedGrassCanUpdateBeforeInitialization" methodname="PrefetchedGrassCanUpdateBeforeInitialization" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1723820470" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000971" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1175" name="PreloadSquareContainsFadeCircleAtBothCellEdges" fullname="Voyage.Tests.Editor.TerrainStreamingTests.PreloadSquareContainsFadeCircleAtBothCellEdges" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001788" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1173" name="PreloadSquareContainsFadeCircleAtBothCellEdges(0.0f)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.PreloadSquareContainsFadeCircleAtBothCellEdges(0.0f)" methodname="PreloadSquareContainsFadeCircleAtBothCellEdges" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1714870856" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000899" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1174" name="PreloadSquareContainsFadeCircleAtBothCellEdges(1500.0f)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.PreloadSquareContainsFadeCircleAtBothCellEdges(1500.0f)" methodname="PreloadSquareContainsFadeCircleAtBothCellEdges" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="522870898" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000195" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1183" name="PublishingGrassReusesCpuStorageAndPreservesTheExistingPrefix" fullname="Voyage.Tests.Editor.TerrainStreamingTests.PublishingGrassReusesCpuStorageAndPreservesTheExistingPrefix" methodname="PublishingGrassReusesCpuStorageAndPreservesTheExistingPrefix" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="747059144" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.006196" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1187" name="RenderedLodMasksAreComplementaryAndDistanceFadeIsGradual" fullname="Voyage.Tests.Editor.TerrainStreamingTests.RenderedLodMasksAreComplementaryAndDistanceFadeIsGradual" methodname="RenderedLodMasksAreComplementaryAndDistanceFadeIsGradual" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1809447534" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.008832" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1182" name="StreamingGrassAppendsWithoutRecreatingGpuBuffers" fullname="Voyage.Tests.Editor.TerrainStreamingTests.StreamingGrassAppendsWithoutRecreatingGpuBuffers" methodname="StreamingGrassAppendsWithoutRecreatingGpuBuffers" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="381112392" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.007479" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1177" name="StreamingWorkerYieldsBeforeAnyBoundaryWork" fullname="Voyage.Tests.Editor.TerrainStreamingTests.StreamingWorkerYieldsBeforeAnyBoundaryWork" methodname="StreamingWorkerYieldsBeforeAnyBoundaryWork" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1657216909" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000507" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1186" name="TerrainShadersCompile" fullname="Voyage.Tests.Editor.TerrainStreamingTests.TerrainShadersCompile" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002285" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1184" name="TerrainShadersCompile(&quot;Voyage/Terrain/Stylized&quot;)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.TerrainShadersCompile(&quot;Voyage/Terrain/Stylized&quot;)" methodname="TerrainShadersCompile" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1174725552" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000926" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1185" name="TerrainShadersCompile(&quot;Voyage/Grass/InteractiveLit&quot;)" fullname="Voyage.Tests.Editor.TerrainStreamingTests.TerrainShadersCompile(&quot;Voyage/Grass/InteractiveLit&quot;)" methodname="TerrainShadersCompile" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="613851971" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000241" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-case id="1178" name="VisualLodNeverChangesCollisionMeshOrContactHeight" fullname="Voyage.Tests.Editor.TerrainStreamingTests.VisualLodNeverChangesCollisionMeshOrContactHeight" methodname="VisualLodNeverChangesCollisionMeshOrContactHeight" classname="Voyage.Tests.Editor.TerrainStreamingTests" runstate="Runnable" seed="1890360521" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001167" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1188" name="VehicleAirbornePitchTests" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.145473" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1193" name="AirborneDampingPreservesYawRollAndGroundedRotation" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests.AirborneDampingPreservesYawRollAndGroundedRotation" methodname="AirborneDampingPreservesYawRollAndGroundedRotation" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" seed="77700443" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001739" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1192" name="RealRvTakeoffPitchSettlesWithoutChangingFlightPath" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests.RealRvTakeoffPitchSettlesWithoutChangingFlightPath" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.142773" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1189" name="RealRvTakeoffPitchSettlesWithoutChangingFlightPath(0.0f,1.0f)" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests.RealRvTakeoffPitchSettlesWithoutChangingFlightPath(0.0f,1.0f)" methodname="RealRvTakeoffPitchSettlesWithoutChangingFlightPath" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" seed="1981628499" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.050032" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Heading 0, pitch sign 1: old 87.19 deg; fixed 10.86 deg
+]]></output>
+                </test-case>
+                <test-case id="1190" name="RealRvTakeoffPitchSettlesWithoutChangingFlightPath(137.0f,1.0f)" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests.RealRvTakeoffPitchSettlesWithoutChangingFlightPath(137.0f,1.0f)" methodname="RealRvTakeoffPitchSettlesWithoutChangingFlightPath" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" seed="156807370" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.045303" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Heading 137, pitch sign 1: old 87.19 deg; fixed 10.86 deg
+]]></output>
+                </test-case>
+                <test-case id="1191" name="RealRvTakeoffPitchSettlesWithoutChangingFlightPath(-80.0f,-1.0f)" fullname="Voyage.Tests.Editor.VehicleAirbornePitchTests.RealRvTakeoffPitchSettlesWithoutChangingFlightPath(-80.0f,-1.0f)" methodname="RealRvTakeoffPitchSettlesWithoutChangingFlightPath" classname="Voyage.Tests.Editor.VehicleAirbornePitchTests" runstate="Runnable" seed="2058300374" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.046341" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                  <output><![CDATA[Heading -80, pitch sign -1: old 87.19 deg; fixed 10.86 deg
+]]></output>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1194" name="VehicleControlTests" fullname="Voyage.Tests.Editor.VehicleControlTests" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.006684" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-suite type="ParameterizedMethod" id="1197" name="ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp" fullname="Voyage.Tests.Editor.VehicleControlTests.ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002119" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1195" name="ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp(0.0f)" fullname="Voyage.Tests.Editor.VehicleControlTests.ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp(0.0f)" methodname="ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" seed="511746273" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001320" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1196" name="ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp(-152.683f)" fullname="Voyage.Tests.Editor.VehicleControlTests.ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp(-152.683f)" methodname="ImportedWheelKeepsDimensionsButSuspendsAlongVehicleUp" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" seed="1415330299" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000233" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+              <test-suite type="ParameterizedMethod" id="1200" name="TransmissionRpmUsesWorldRadius" fullname="Voyage.Tests.Editor.VehicleControlTests.TransmissionRpmUsesWorldRadius" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002436" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1198" name="TransmissionRpmUsesWorldRadius(1.0f)" fullname="Voyage.Tests.Editor.VehicleControlTests.TransmissionRpmUsesWorldRadius(1.0f)" methodname="TransmissionRpmUsesWorldRadius" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" seed="1295483668" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.001128" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1199" name="TransmissionRpmUsesWorldRadius(100.0f)" fullname="Voyage.Tests.Editor.VehicleControlTests.TransmissionRpmUsesWorldRadius(100.0f)" methodname="TransmissionRpmUsesWorldRadius" classname="Voyage.Tests.Editor.VehicleControlTests" runstate="Runnable" seed="673090837" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.000326" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+              </test-suite>
+            </test-suite>
+            <test-suite type="TestFixture" id="1201" name="WindInteractionTests" fullname="Voyage.Tests.Editor.WindInteractionTests" classname="Voyage.Tests.Editor.WindInteractionTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.031318" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1203" name="ForcedRibbonsArePooledAndShadersAreAvailable" fullname="Voyage.Tests.Editor.WindInteractionTests.ForcedRibbonsArePooledAndShadersAreAvailable" methodname="ForcedRibbonsArePooledAndShadersAreAvailable" classname="Voyage.Tests.Editor.WindInteractionTests" runstate="Runnable" seed="1109883326" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.004081" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+              </test-case>
+              <test-case id="1202" name="MapRespectsCalmDirectionAndDoesNotWriteCollisionDamage" fullname="Voyage.Tests.Editor.WindInteractionTests.MapRespectsCalmDirectionAndDoesNotWriteCollisionDamage" methodname="MapRespectsCalmDirectionAndDoesNotWriteCollisionDamage" classname="Voyage.Tests.Editor.WindInteractionTests" runstate="Runnable" seed="524728745" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.025101" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Releasing render texture that is set to be RenderTexture.active!
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1269" name="Voyage.Dialogue.Tests.dll" fullname="C:/Users/Ragon/.codex/worktrees/a987/Voyage/Library/ScriptAssemblies/Voyage.Dialogue.Tests.dll" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.284964" total="60" passed="60" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="75824" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1270" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.280811" total="60" passed="60" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1271" name="Dialogue" fullname="Voyage.Dialogue" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.280280" total="60" passed="60" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1272" name="Tests" fullname="Voyage.Dialogue.Tests" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.279516" total="60" passed="60" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1208" name="ConversationTests" fullname="Voyage.Dialogue.Tests.ConversationTests" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" testcasecount="60" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.278598" total="60" passed="60" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1257" name="ActualHandoverFulfilsPromiseOnce" fullname="Voyage.Dialogue.Tests.ConversationTests.ActualHandoverFulfilsPromiseOnce" methodname="ActualHandoverFulfilsPromiseOnce" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="24464535" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.008611" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1230" name="AllObservationRoutesHaveEvidenceThresholdsAndCooldown" fullname="Voyage.Dialogue.Tests.ConversationTests.AllObservationRoutesHaveEvidenceThresholdsAndCooldown" methodname="AllObservationRoutesHaveEvidenceThresholdsAndCooldown" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1285405697" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.023498" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1247" name="AnsweredQuestionsDoNotReappearWithinTheSameConversation" fullname="Voyage.Dialogue.Tests.ConversationTests.AnsweredQuestionsDoNotReappearWithinTheSameConversation" methodname="AnsweredQuestionsDoNotReappearWithinTheSameConversation" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1129323904" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003434" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1238" name="ApproachUsesDeliveredTopicInsteadOfArbitraryVariation" fullname="Voyage.Dialogue.Tests.ConversationTests.ApproachUsesDeliveredTopicInsteadOfArbitraryVariation" methodname="ApproachUsesDeliveredTopicInsteadOfArbitraryVariation" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="191233159" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002845" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1258" name="AutonomousSupplyReleasesPromiseAndChangesReentry" fullname="Voyage.Dialogue.Tests.ConversationTests.AutonomousSupplyReleasesPromiseAndChangesReentry" methodname="AutonomousSupplyReleasesPromiseAndChangesReentry" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1063434033" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002381" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1233" name="BoredomIsAskedAboutAndLeadsToAConcreteActivity" fullname="Voyage.Dialogue.Tests.ConversationTests.BoredomIsAskedAboutAndLeadsToAConcreteActivity" methodname="BoredomIsAskedAboutAndLeadsToAConcreteActivity" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1583270214" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002756" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1237" name="CasualRepliesDoNotAssertAPlayerIntent" fullname="Voyage.Dialogue.Tests.ConversationTests.CasualRepliesDoNotAssertAPlayerIntent" methodname="CasualRepliesDoNotAssertAPlayerIntent" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="38244915" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002916" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1225" name="CloseStationaryCompanyIsObservedButWalkingAndDistanceAreNot" fullname="Voyage.Dialogue.Tests.ConversationTests.CloseStationaryCompanyIsObservedButWalkingAndDistanceAreNot" methodname="CloseStationaryCompanyIsObservedButWalkingAndDistanceAreNot" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1421848308" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002657" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1209" name="ContentIsValidAndAllBranchesHaveStableIds" fullname="Voyage.Dialogue.Tests.ConversationTests.ContentIsValidAndAllBranchesHaveStableIds" methodname="ContentIsValidAndAllBranchesHaveStableIds" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1402627159" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003203" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1255" name="ConversationContinuesAcrossTwentyMetresAndResumesWithinThatRange" fullname="Voyage.Dialogue.Tests.ConversationTests.ConversationContinuesAcrossTwentyMetresAndResumesWithinThatRange" methodname="ConversationContinuesAcrossTwentyMetresAndResumesWithinThatRange" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1046975420" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002775" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1262" name="CooperationAndSpeechProceedIndependently" fullname="Voyage.Dialogue.Tests.ConversationTests.CooperationAndSpeechProceedIndependently" methodname="CooperationAndSpeechProceedIndependently" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="512193647" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002568" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1220" name="DefaultReleaseDoesNotSubmitOrResetTheResponseWindow" fullname="Voyage.Dialogue.Tests.ConversationTests.DefaultReleaseDoesNotSubmitOrResetTheResponseWindow" methodname="DefaultReleaseDoesNotSubmitOrResetTheResponseWindow" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1918896231" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002685" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1254" name="DistanceGraceAndResumePreserveEncounter" fullname="Voyage.Dialogue.Tests.ConversationTests.DistanceGraceAndResumePreserveEncounter" methodname="DistanceGraceAndResumePreserveEncounter" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="2104846264" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002685" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1219" name="EveryResponseGroupDefaultsToSilentAndHasShortLines" fullname="Voyage.Dialogue.Tests.ConversationTests.EveryResponseGroupDefaultsToSilentAndHasShortLines" methodname="EveryResponseGroupDefaultsToSilentAndHasShortLines" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1704832186" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003164" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1249" name="ExhaustedQuestionsLeadToTopicFarewellInsteadOfEmptyMenu" fullname="Voyage.Dialogue.Tests.ConversationTests.ExhaustedQuestionsLeadToTopicFarewellInsteadOfEmptyMenu" methodname="ExhaustedQuestionsLeadToTopicFarewellInsteadOfEmptyMenu" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1355242223" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002547" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1231" name="ExplicitIntentsAreRememberedCorrectableAndDoNotNagWhileIdle" fullname="Voyage.Dialogue.Tests.ConversationTests.ExplicitIntentsAreRememberedCorrectableAndDoNotNagWhileIdle" methodname="ExplicitIntentsAreRememberedCorrectableAndDoNotNagWhileIdle" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1346234170" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.019275" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1242" name="FarewellAndSilenceStayInTheCurrentTopic" fullname="Voyage.Dialogue.Tests.ConversationTests.FarewellAndSilenceStayInTheCurrentTopic" methodname="FarewellAndSilenceStayInTheCurrentTopic" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="371121195" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002979" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1251" name="FarewellFinishesWithoutAnExtraChoice" fullname="Voyage.Dialogue.Tests.ConversationTests.FarewellFinishesWithoutAnExtraChoice" methodname="FarewellFinishesWithoutAnExtraChoice" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="44459581" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002563" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1268" name="FileSaveReplacesAtomicallyAndKeepsPreviousSnapshot" fullname="Voyage.Dialogue.Tests.ConversationTests.FileSaveReplacesAtomicallyAndKeepsPreviousSnapshot" methodname="FileSaveReplacesAtomicallyAndKeepsPreviousSnapshot" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1211162669" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.029357" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1218" name="FullResponseSetLastsThirtySixSecondsWithoutStageExpiry" fullname="Voyage.Dialogue.Tests.ConversationTests.FullResponseSetLastsThirtySixSecondsWithoutStageExpiry" methodname="FullResponseSetLastsThirtySixSecondsWithoutStageExpiry" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1959918393" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.006709" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1243" name="HandoverReplacesOldOfferChoicesWithActualReceipt" fullname="Voyage.Dialogue.Tests.ConversationTests.HandoverReplacesOldOfferChoicesWithActualReceipt" methodname="HandoverReplacesOldOfferChoicesWithActualReceipt" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1138002143" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002632" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1256" name="HandoverRevalidatesAndIsIdempotentAcrossLoad" fullname="Voyage.Dialogue.Tests.ConversationTests.HandoverRevalidatesAndIsIdempotentAcrossLoad" methodname="HandoverRevalidatesAndIsIdempotentAcrossLoad" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="546573452" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002976" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1228" name="HelpfulObservationRequiresBothRealActionsNotOffers" fullname="Voyage.Dialogue.Tests.ConversationTests.HelpfulObservationRequiresBothRealActionsNotOffers" methodname="HelpfulObservationRequiresBothRealActionsNotOffers" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1203087465" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003073" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1263" name="InterruptedCooperationDoesNotRecordSuccess" fullname="Voyage.Dialogue.Tests.ConversationTests.InterruptedCooperationDoesNotRecordSuccess" methodname="InterruptedCooperationDoesNotRecordSuccess" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1814488468" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003019" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1215" name="InvalidatedChoiceKeepsItsSlotAndCannotCommit" fullname="Voyage.Dialogue.Tests.ConversationTests.InvalidatedChoiceKeepsItsSlotAndCannotCommit" methodname="InvalidatedChoiceKeepsItsSlotAndCannotCommit" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="2000124196" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002951" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1234" name="LaterConversationsVaryWordingWithoutChangingTheResponseMeaning" fullname="Voyage.Dialogue.Tests.ConversationTests.LaterConversationsVaryWordingWithoutChangingTheResponseMeaning" methodname="LaterConversationsVaryWordingWithoutChangingTheResponseMeaning" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1014368220" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003956" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1226" name="LongResponseWaitDoesNotCountAsIdleCompany" fullname="Voyage.Dialogue.Tests.ConversationTests.LongResponseWaitDoesNotCountAsIdleCompany" methodname="LongResponseWaitDoesNotCountAsIdleCompany" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="2058862017" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002751" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1210" name="MalformedConditionCannotUnlockContent" fullname="Voyage.Dialogue.Tests.ConversationTests.MalformedConditionCannotUnlockContent" methodname="MalformedConditionCannotUnlockContent" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1371856305" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003861" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1265" name="MissingNodeClosesSessionWithoutDroppingPromise" fullname="Voyage.Dialogue.Tests.ConversationTests.MissingNodeClosesSessionWithoutDroppingPromise" methodname="MissingNodeClosesSessionWithoutDroppingPromise" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="517335580" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.007681" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1266" name="NewerSaveIsRejected" fullname="Voyage.Dialogue.Tests.ConversationTests.NewerSaveIsRejected" methodname="NewerSaveIsRejected" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="203193818" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.009515" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1224" name="NewSpeechSupersedesAnUnspokenQuietGuess" fullname="Voyage.Dialogue.Tests.ConversationTests.NewSpeechSupersedesAnUnspokenQuietGuess" methodname="NewSpeechSupersedesAnUnspokenQuietGuess" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="998960992" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.014332" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1239" name="NightAndMorningHaveDifferentOpenings" fullname="Voyage.Dialogue.Tests.ConversationTests.NightAndMorningHaveDifferentOpenings" methodname="NightAndMorningHaveDifferentOpenings" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1077068750" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002903" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1240" name="NotebookReturnPersistsAcrossSaveAndDoesNotInventPaintingContext" fullname="Voyage.Dialogue.Tests.ConversationTests.NotebookReturnPersistsAcrossSaveAndDoesNotInventPaintingContext" methodname="NotebookReturnPersistsAcrossSaveAndDoesNotInventPaintingContext" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="843604384" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003095" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1214" name="NotHearingShopDoesNotUnlockKnowledge" fullname="Voyage.Dialogue.Tests.ConversationTests.NotHearingShopDoesNotUnlockKnowledge" methodname="NotHearingShopDoesNotUnlockKnowledge" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="3507183" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002303" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1223" name="ObservationRequiresPerceivedSpeechAndSurvivesSave" fullname="Voyage.Dialogue.Tests.ConversationTests.ObservationRequiresPerceivedSpeechAndSurvivesSave" methodname="ObservationRequiresPerceivedSpeechAndSurvivesSave" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1007190248" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003275" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1211" name="OfferDoesNotBecomePromise" fullname="Voyage.Dialogue.Tests.ConversationTests.OfferDoesNotBecomePromise" methodname="OfferDoesNotBecomePromise" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1618233729" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002595" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1259" name="OverdueIsPreservedByLateFulfilment" fullname="Voyage.Dialogue.Tests.ConversationTests.OverdueIsPreservedByLateFulfilment" methodname="OverdueIsPreservedByLateFulfilment" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="2028720102" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002882" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1250" name="PromiseContextDoesNotInventOrSettlePromises" fullname="Voyage.Dialogue.Tests.ConversationTests.PromiseContextDoesNotInventOrSettlePromises" methodname="PromiseContextDoesNotInventOrSettlePromises" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="789212537" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002344" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1212" name="PromiseNeedsBothSemanticDeliveries" fullname="Voyage.Dialogue.Tests.ConversationTests.PromiseNeedsBothSemanticDeliveries" methodname="PromiseNeedsBothSemanticDeliveries" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="447345718" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002665" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1229" name="QuestionSubjectsCreateDifferentObservations" fullname="Voyage.Dialogue.Tests.ConversationTests.QuestionSubjectsCreateDifferentObservations" methodname="QuestionSubjectsCreateDifferentObservations" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="2009031629" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.004737" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1252" name="QuietCompanyRecordsListeningOnlyAndEndsNaturally" fullname="Voyage.Dialogue.Tests.ConversationTests.QuietCompanyRecordsListeningOnlyAndEndsNaturally" methodname="QuietCompanyRecordsListeningOnlyAndEndsNaturally" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1015189038" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002352" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1232" name="QuietRequestSuppressesUninvitedCompanyQuestions" fullname="Voyage.Dialogue.Tests.ConversationTests.QuietRequestSuppressesUninvitedCompanyQuestions" methodname="QuietRequestSuppressesUninvitedCompanyQuestions" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1515204560" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002801" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1261" name="RecallRequiresActualMemoryAndHasCooldown" fullname="Voyage.Dialogue.Tests.ConversationTests.RecallRequiresActualMemoryAndHasCooldown" methodname="RecallRequiresActualMemoryAndHasCooldown" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1345919450" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002779" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1236" name="RedirectedAcceptanceDoesNotKeepAnUnrelatedCachedLine" fullname="Voyage.Dialogue.Tests.ConversationTests.RedirectedAcceptanceDoesNotKeepAnUnrelatedCachedLine" methodname="RedirectedAcceptanceDoesNotKeepAnUnrelatedCachedLine" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1229390355" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002916" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1216" name="ReleaseBarrierAndResponseVersionRejectOldInputs" fullname="Voyage.Dialogue.Tests.ConversationTests.ReleaseBarrierAndResponseVersionRejectOldInputs" methodname="ReleaseBarrierAndResponseVersionRejectOldInputs" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1242429396" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002302" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1260" name="RepeatedOfferWithinEncounterDoesNotFarmEvidence" fullname="Voyage.Dialogue.Tests.ConversationTests.RepeatedOfferWithinEncounterDoesNotFarmEvidence" methodname="RepeatedOfferWithinEncounterDoesNotFarmEvidence" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1157309352" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002569" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1222" name="RepeatedUnansweredWindowsProduceTentativeQuietObservation" fullname="Voyage.Dialogue.Tests.ConversationTests.RepeatedUnansweredWindowsProduceTentativeQuietObservation" methodname="RepeatedUnansweredWindowsProduceTentativeQuietObservation" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="15597604" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002590" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1227" name="RepeatedVisitsAndQuickDeparturesAreDifferentEvidence" fullname="Voyage.Dialogue.Tests.ConversationTests.RepeatedVisitsAndQuickDeparturesAreDifferentEvidence" methodname="RepeatedVisitsAndQuickDeparturesAreDifferentEvidence" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="58215198" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.004641" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1264" name="RestoreDoesNotReproposeOrExtendDeadline" fullname="Voyage.Dialogue.Tests.ConversationTests.RestoreDoesNotReproposeOrExtendDeadline" methodname="RestoreDoesNotReproposeOrExtendDeadline" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="94822401" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003009" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1253" name="ResumeAndRestoreKeepElapsedResponseTime" fullname="Voyage.Dialogue.Tests.ConversationTests.ResumeAndRestoreKeepElapsedResponseTime" methodname="ResumeAndRestoreKeepElapsedResponseTime" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="968815525" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003250" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1245" name="RevisedQuestionPathsReachTheirSpecificAnswerAndAnEnding" fullname="Voyage.Dialogue.Tests.ConversationTests.RevisedQuestionPathsReachTheirSpecificAnswerAndAnEnding" methodname="RevisedQuestionPathsReachTheirSpecificAnswerAndAnEnding" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1299865075" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002648" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1267" name="SaveBeforeAcceptanceDoesNotCreatePhantomPromiseOnResume" fullname="Voyage.Dialogue.Tests.ConversationTests.SaveBeforeAcceptanceDoesNotCreatePhantomPromiseOnResume" methodname="SaveBeforeAcceptanceDoesNotCreatePhantomPromiseOnResume" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1883834183" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003398" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1213" name="SpeechLostBeforePerceptionDoesNotCreatePromise" fullname="Voyage.Dialogue.Tests.ConversationTests.SpeechLostBeforePerceptionDoesNotCreatePromise" methodname="SpeechLostBeforePerceptionDoesNotCreatePromise" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1371159682" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002316" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1221" name="SpokenReplyCanStillBeSentAtThirtyFiveSeconds" fullname="Voyage.Dialogue.Tests.ConversationTests.SpokenReplyCanStillBeSentAtThirtyFiveSeconds" methodname="SpokenReplyCanStillBeSentAtThirtyFiveSeconds" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="413306325" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002203" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1248" name="SuppliedPaintDoesNotBecomeMissingAgainInMoneyDiscussion" fullname="Voyage.Dialogue.Tests.ConversationTests.SuppliedPaintDoesNotBecomeMissingAgainInMoneyDiscussion" methodname="SuppliedPaintDoesNotBecomeMissingAgainInMoneyDiscussion" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="850784838" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002372" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1244" name="TentCompletionReplacesPendingHelpWithAcknowledgement" fullname="Voyage.Dialogue.Tests.ConversationTests.TentCompletionReplacesPendingHelpWithAcknowledgement" methodname="TentCompletionReplacesPendingHelpWithAcknowledgement" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1954822407" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002753" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1217" name="TopicSelectionHasNoTimeoutOrNegativeEvidence" fullname="Voyage.Dialogue.Tests.ConversationTests.TopicSelectionHasNoTimeoutOrNegativeEvidence" methodname="TopicSelectionHasNoTimeoutOrNegativeEvidence" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="351440290" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002752" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1241" name="UndeliveredLineDoesNotReplaceTheRememberedTopic" fullname="Voyage.Dialogue.Tests.ConversationTests.UndeliveredLineDoesNotReplaceTheRememberedTopic" methodname="UndeliveredLineDoesNotReplaceTheRememberedTopic" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="1758832096" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002400" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1235" name="UndeliveredVariantsAreNotConsumedAndSaveResumeKeepsTheExactLine" fullname="Voyage.Dialogue.Tests.ConversationTests.UndeliveredVariantsAreNotConsumedAndSaveResumeKeepsTheExactLine" methodname="UndeliveredVariantsAreNotConsumedAndSaveResumeKeepsTheExactLine" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="956226710" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.003301" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1246" name="UnfamiliarSaleQuestionDeclinesDirectlyInsteadOfJumpingToMenu" fullname="Voyage.Dialogue.Tests.ConversationTests.UnfamiliarSaleQuestionDeclinesDirectlyInsteadOfJumpingToMenu" methodname="UnfamiliarSaleQuestionDeclinesDirectlyInsteadOfJumpingToMenu" classname="Voyage.Dialogue.Tests.ConversationTests" runstate="Runnable" seed="207597286" result="Passed" start-time="2026-11-05 23:27:11Z" end-time="2026-11-05 23:27:11Z" duration="0.002550" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/Ragon/AppData/LocalLow/DefaultCompany/Voyage\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

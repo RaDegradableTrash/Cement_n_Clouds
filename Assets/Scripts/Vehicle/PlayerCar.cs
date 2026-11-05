@@ -949,6 +949,8 @@ public class PlayerCar : MonoBehaviour
     }
     public void SetHeadlights(bool enabled)
     {
+        var referenceLighting=GetComponent<Voyage.Lighting.VoyageVehicleLighting>();
+        if(referenceLighting!=null) referenceLighting.SetHeadlights(enabled);
         if (leftHeadlight != null) leftHeadlight.enabled = enabled;
         if (rightHeadlight != null) rightHeadlight.enabled = enabled;
     }

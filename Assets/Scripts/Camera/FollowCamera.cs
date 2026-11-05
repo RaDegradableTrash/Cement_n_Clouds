@@ -219,7 +219,8 @@ public class FollowCamera : MonoBehaviour
 
     bool LookActive()
     {
-        return hadFocus && Time.timeScale > 0.001f && target != null && !Voyage.Dialogue.CoBluesDialogue.UsesPointer;
+        return hadFocus && Time.timeScale > 0.001f && target != null && !Voyage.Dialogue.CoBluesDialogue.UsesPointer
+            && !Voyage.Lighting.VoyageLookController.UsesPointer;
     }
 
     void UpdateCursorState()

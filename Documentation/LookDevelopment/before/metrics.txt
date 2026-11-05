@@ -1,0 +1,8 @@
+GPU: NVIDIA GeForce RTX 5070 Laptop GPU
+1920x1080 Editor Play Mode; 120 explicit rendered frames after 30 rendered warmup frames. Synchronized GPU readback included; not standalone FPS.
+time-12 median_ms=9.6507 p95_ms=13.7252 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+time-17.5 median_ms=9.8536 p95_ms=16.987 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+time-22 median_ms=9.5967 p95_ms=10.8413 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+NPC bounds=Center: (-30.24, -20.49, -25.22), Extents: (0.81, 1.50, 0.99)
+character-dusk median_ms=10.0807 p95_ms=11.0052 camera=(-30.24, -20.19, -19.97) rotation=(3.27, 180.00, 0.00)
+character-night median_ms=10.8018 p95_ms=11.8121 camera=(-30.24, -20.19, -19.97) rotation=(3.27, 180.00, 0.00)

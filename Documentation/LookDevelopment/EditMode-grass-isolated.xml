@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="1" result="Passed" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.576977">
+  <test-suite type="TestSuite" id="1000" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="216" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.576977" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1204" name="Voyage.ColliderTools.Editor.Tests.dll" fullname="C:/Users/Ragon/.codex/worktrees/a987/Voyage/Library/ScriptAssemblies/Voyage.ColliderTools.Editor.Tests.dll" runstate="Runnable" testcasecount="156" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.566636" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="86176" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1205" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="156" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.563133" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1206" name="Tests" fullname="Voyage.Tests" runstate="Runnable" testcasecount="156" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.561257" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestSuite" id="1207" name="Editor" fullname="Voyage.Tests.Editor" runstate="Runnable" testcasecount="156" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.559401" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="TestFixture" id="1087" name="GrassFlowPainterTests" fullname="Voyage.Tests.Editor.GrassFlowPainterTests" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" testcasecount="23" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.555351" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1104" name="GpuRenderingRespondsToSavedDensityAndDayNight" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.GpuRenderingRespondsToSavedDensityAndDayNight" methodname="GpuRenderingRespondsToSavedDensityAndDayNight" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1752553586" result="Passed" start-time="2026-11-05 23:22:23Z" end-time="2026-11-05 23:22:23Z" duration="0.541994" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[CLOUDS // pass active; shader=Hidden/Voyage/VolumetricClouds, height=900-1800, coverage=0.52, density=1.15, noise=0.00125, steps=64/4.
+CLOUDS // RenderGraph recorded the cloud raymarch and composite passes.
+Saving results to: C:/Users/Ragon/AppData/LocalLow/DefaultCompany/Voyage\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

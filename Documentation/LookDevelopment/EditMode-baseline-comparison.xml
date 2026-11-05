@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="42" result="Failed(Child)" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-11-05 23:17:11Z" end-time="2026-11-05 23:17:51Z" duration="39.2282903">
+  <test-suite type="TestSuite" id="1000" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="216" result="Failed" site="Child" start-time="2026-11-05 23:17:11Z" end-time="2026-11-05 23:17:51Z" duration="39.228290" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="Assembly" id="1204" name="Voyage.ColliderTools.Editor.Tests.dll" fullname="C:/Users/Ragon/.codex/worktrees/a987/Voyage/Library/ScriptAssemblies/Voyage.ColliderTools.Editor.Tests.dll" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:17:12Z" end-time="2026-11-05 23:17:51Z" duration="39.117322" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="92716" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="1205" name="Voyage" fullname="Voyage" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:17:12Z" end-time="2026-11-05 23:17:51Z" duration="39.113180" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestSuite" id="1206" name="Tests" fullname="Voyage.Tests" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:17:12Z" end-time="2026-11-05 23:17:51Z" duration="39.108106" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <output><![CDATA[FBX TERRAIN // center tile ready; continuing background load (1 tiles)
+]]></output>
+          <test-suite type="TestSuite" id="1207" name="Editor" fullname="Voyage.Tests.Editor" runstate="Runnable" testcasecount="156" result="Failed" site="Child" start-time="2026-11-05 23:17:12Z" end-time="2026-11-05 23:17:51Z" duration="39.102242" total="42" passed="32" failed="10" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-suite type="TestFixture" id="1087" name="GrassFlowPainterTests" fullname="Voyage.Tests.Editor.GrassFlowPainterTests" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" testcasecount="23" result="Failed" site="Child" start-time="2026-11-05 23:16:31Z" end-time="2026-11-05 23:16:40Z" duration="9.131084" total="23" passed="21" failed="2" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1094" name="AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" methodname="AppliedHistoryRestoresBeforeAndAfterAndKeepsTheRecord" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="61678659" result="Passed" start-time="2026-11-05 23:16:31Z" end-time="2026-11-05 23:16:36Z" duration="5.449005" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1095" name="AppliedRoadClearsGrassButLaterGrassStrokeWins" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AppliedRoadClearsGrassButLaterGrassStrokeWins" methodname="AppliedRoadClearsGrassButLaterGrassStrokeWins" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="595057174" result="Passed" start-time="2026-11-05 23:16:36Z" end-time="2026-11-05 23:16:36Z" duration="0.045562" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1088" name="AssigningAuthoredPatchDoesNotTransferOwnershipToTile" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.AssigningAuthoredPatchDoesNotTransferOwnershipToTile" methodname="AssigningAuthoredPatchDoesNotTransferOwnershipToTile" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1764752985" result="Failed" label="Error" start-time="2026-11-05 23:16:36Z" end-time="2026-11-05 23:16:37Z" duration="0.064388" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                  <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.GrassFlowPainterTests.Call (System.Object value, System.String method, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:21
+  at Voyage.Tests.Editor.GrassFlowPainterTests.AssigningAuthoredPatchDoesNotTransferOwnershipToTile () [0x0003e] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:45
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1101" name="BrushCrossesTileBoundarySymmetrically" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.BrushCrossesTileBoundarySymmetrically" methodname="BrushCrossesTileBoundarySymmetrically" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="216496211" result="Passed" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:37Z" duration="0.022510" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1100" name="BrushErasesAddsAndUndoRestoresTexture" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.BrushErasesAddsAndUndoRestoresTexture" methodname="BrushErasesAddsAndUndoRestoresTexture" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1831701600" result="Passed" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:37Z" duration="0.025720" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1092" name="DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" methodname="DeferredRoadBrushDoesNotLoadTilesAndAllowsGrassRepainting" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1926736837" result="Passed" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:37Z" duration="0.848238" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1099" name="DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" methodname="DensityPreviewRendersRedForDenseAndGreenForSparseWithoutChangingMesh" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="658349703" result="Passed" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:37Z" duration="0.051977" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1111" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" testcasecount="5" result="Failed" site="Child" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:38Z" duration="0.482669" total="5" passed="4" failed="1" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1106" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,12.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,12.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="70147746" result="Passed" start-time="2026-11-05 23:16:37Z" end-time="2026-11-05 23:16:38Z" duration="0.400074" asserts="0">
+                  <properties />
+                  <output><![CDATA[CLOUDS // pass active; shader=Hidden/Voyage/VolumetricClouds, height=900-1800, coverage=0.52, density=1.15, noise=0.00125, steps=64/4.
+CLOUDS // RenderGraph recorded the cloud raymarch and composite passes.
+]]></output>
+                </test-case>
+                <test-case id="1107" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="2014843600" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.017629" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1108" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,6000.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,6000.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="812882819" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.018348" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1109" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(True,180.0f,False)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(True,180.0f,False)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1163109739" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.019727" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1110" name="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,True)" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround(False,180.0f,True)" methodname="DistantContoursPreserveSilhouettesWithoutStripingContinuousGround" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="469835250" result="Failed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.016935" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[  Foliage must not produce dark canopy contours.
+  Expected: less than 4.99999987E-05f
+  But was:  8.06099852E-05f
+]]></message>
+                    <stack-trace><![CDATA[at Voyage.Tests.Editor.GrassFlowPainterTests.DistantContoursPreserveSilhouettesWithoutStripingContinuousGround (System.Boolean continuousGround, System.Single distance, System.Boolean foliage) [0x0042e] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\GrassFlowPainterTests.cs:697
+]]></stack-trace>
+                  </failure>
+                </test-case>
+              </test-suite>
+              <test-case id="1104" name="GpuRenderingRespondsToSavedDensityAndDayNight" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.GpuRenderingRespondsToSavedDensityAndDayNight" methodname="GpuRenderingRespondsToSavedDensityAndDayNight" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="50621313" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.371651" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1093" name="LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" methodname="LastDraftGestureCanBeRemovedAndRestoredWithoutLosingHistory" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1833904608" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.012673" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1102" name="PaintCannotCreateGrassOutsideMeshCoverage" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.PaintCannotCreateGrassOutsideMeshCoverage" methodname="PaintCannotCreateGrassOutsideMeshCoverage" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="449368031" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.022950" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1105" name="PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" methodname="PersistentHorizonContainsOnlyLowDetailGeometryBeyondStreamingRadius" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="2042290710" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.060640" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1090" name="RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" methodname="RuntimeGrassHeightComesFromOwningTileMeshNotOverheadCollider" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1560996932" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:38Z" duration="0.003692" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1096" name="RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" methodname="RuntimeTerrainShaderDisplaysRoadMaskAsBrownDirt" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1204298814" result="Passed" start-time="2026-11-05 23:16:38Z" end-time="2026-11-05 23:16:39Z" duration="0.319084" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1103" name="StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" methodname="StreamedTileUsesSavedPatchAndSkipsLegacyGeneration" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1717765082" result="Passed" start-time="2026-11-05 23:16:39Z" end-time="2026-11-05 23:16:39Z" duration="0.002796" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1097" name="TerrainEditingViewKeepsZoomPivotAboveMountains" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.TerrainEditingViewKeepsZoomPivotAboveMountains" methodname="TerrainEditingViewKeepsZoomPivotAboveMountains" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="517583007" result="Passed" start-time="2026-11-05 23:16:39Z" end-time="2026-11-05 23:16:39Z" duration="0.403052" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1089" name="UnpaintedFarTileBuildsGrassFromTransformedMesh" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.UnpaintedFarTileBuildsGrassFromTransformedMesh" methodname="UnpaintedFarTileBuildsGrassFromTransformedMesh" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="214864709" result="Passed" start-time="2026-11-05 23:16:39Z" end-time="2026-11-05 23:16:39Z" duration="0.005709" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1091" name="WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" methodname="WholeTerrainOverviewSharesMeshesAndSurvivesChangingPaintArea" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="1554982238" result="Passed" start-time="2026-11-05 23:16:39Z" end-time="2026-11-05 23:16:40Z" duration="0.816344" asserts="0">
+                <properties />
+                <output><![CDATA[Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_-1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_1_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_1
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_0_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-1_3
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-1_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_2
+Detected one or more triangles where the distance between any 2 vertices is greater than 500 units. The resulting Triangle Mesh can impact simulation and query stability. It is recommended to tessellate meshes that have large triangles. Source mesh name: Horizon_-2_3
+]]></output>
+              </test-case>
+              <test-case id="1098" name="WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" fullname="Voyage.Tests.Editor.GrassFlowPainterTests.WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" methodname="WorldBrushPaintsAcrossUnloadedTilesAndUndoRestoresWeights" classname="Voyage.Tests.Editor.GrassFlowPainterTests" runstate="Runnable" seed="2005384257" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.107602" asserts="0">
+                <properties />
+              </test-case>
+            </test-suite>
+            <test-suite type="TestFixture" id="1129" name="OpenIssueRegressionTests" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="19" result="Failed" site="Child" start-time="2026-11-05 23:17:12Z" end-time="2026-11-05 23:17:51Z" duration="39.084994" total="19" passed="11" failed="8" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <failure>
+                <message><![CDATA[One or more child tests had errors]]></message>
+              </failure>
+              <test-case id="1135" name="AuthoredSixtySecondDayNowLastsFourMinutes" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.AuthoredSixtySecondDayNowLastsFourMinutes" methodname="AuthoredSixtySecondDayNowLastsFourMinutes" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1909472172" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.002724" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1145" name="CameraCannotOrbitThroughGroundOrCloseWall" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="4" result="Failed" site="Child" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.004280" total="4" passed="0" failed="4" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[One or more child tests had errors]]></message>
+                </failure>
+                <test-case id="1141" name="CameraCannotOrbitThroughGroundOrCloseWall(False,False)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(False,False)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="377861312" result="Failed" label="Error" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.001317" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1142" name="CameraCannotOrbitThroughGroundOrCloseWall(False,True)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(False,True)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="688800768" result="Failed" label="Error" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.000412" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1143" name="CameraCannotOrbitThroughGroundOrCloseWall(True,False)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(True,False)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="875956982" result="Failed" label="Error" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.000364" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+                <test-case id="1144" name="CameraCannotOrbitThroughGroundOrCloseWall(True,True)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall(True,True)" methodname="CameraCannotOrbitThroughGroundOrCloseWall" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="841914745" result="Failed" label="Error" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.000335" asserts="0">
+                  <properties />
+                  <failure>
+                    <message><![CDATA[System.Reflection.TargetParameterCountException : Number of parameters specified does not match the expected number.]]></message>
+                    <stack-trace><![CDATA[  at System.Reflection.RuntimeMethodInfo.ConvertValues (System.Reflection.Binder binder, System.Object[] args, System.Reflection.ParameterInfo[] pinfo, System.Globalization.CultureInfo culture, System.Reflection.BindingFlags invokeAttr) [0x00016] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00040] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <816f70bc2a9c4332b0bd119906a8d40e>:0
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.CameraCannotOrbitThroughGroundOrCloseWall (System.Boolean wall, System.Boolean afterFastOrbitChange) [0x00140] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:188
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                  </failure>
+                </test-case>
+              </test-suite>
+              <test-case id="1146" name="CameraEnablesFullResolutionEdgeAntialiasing" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.CameraEnablesFullResolutionEdgeAntialiasing" methodname="CameraEnablesFullResolutionEdgeAntialiasing" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1070083549" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.002582" asserts="0">
+                <properties />
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1133" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.011169" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1130" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(1.0f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(1.0f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="722763230" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.001034" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1131" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.0f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.0f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="2037528454" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.000196" asserts="0">
+                  <properties />
+                </test-case>
+                <test-case id="1132" name="FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.4f)" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.FuelConsumptionIsTenPercentOfPreviousAuthoredRate(0.4f)" methodname="FuelConsumptionIsTenPercentOfPreviousAuthoredRate" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="575101116" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.000136" asserts="0">
+                  <properties />
+                </test-case>
+              </test-suite>
+              <test-case id="1139" name="GrassDrawRangeFollowsTheDrivingCameraZoom" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.GrassDrawRangeFollowsTheDrivingCameraZoom" methodname="GrassDrawRangeFollowsTheDrivingCameraZoom" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="914702398" result="Failed" label="Error" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.001236" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                  <stack-trace><![CDATA[  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests.GrassDrawRangeFollowsTheDrivingCameraZoom () [0x000e0] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:147
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <816f70bc2a9c4332b0bd119906a8d40e>:0 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1140" name="MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" methodname="MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1237880876" result="Failed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:40Z" duration="0.002466" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[  Fog should still blend distant terrain into the horizon.
+  Expected: in range (6500,10000)
+  But was:  20000.0f
+]]></message>
+                  <stack-trace><![CDATA[at Voyage.Tests.Editor.OpenIssueRegressionTests.MountainFogKeepsTheFarBackdropVisibleWithoutStartingBesideTheVehicle () [0x000a3] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:169
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1147" name="MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" methodname="MultipleGrassTilesPrepareOnDifferentFramesBeforeRendering" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1636544351" result="Passed" start-time="2026-11-05 23:16:40Z" end-time="2026-11-05 23:16:47Z" duration="6.957558" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+              </test-case>
+              <test-case id="1136" name="ReferenceVehicleCanZoomToTwoHundredMetres" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.ReferenceVehicleCanZoomToTwoHundredMetres" methodname="ReferenceVehicleCanZoomToTwoHundredMetres" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1249372711" result="Passed" start-time="2026-11-05 23:16:47Z" end-time="2026-11-05 23:16:47Z" duration="0.005130" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1134" name="ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" methodname="ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="71021234" result="Failed" start-time="2026-11-05 23:16:47Z" end-time="2026-11-05 23:16:47Z" duration="0.008208" asserts="0">
+                <properties />
+                <failure>
+                  <message><![CDATA[  Yaw correction must not fight active steering input.
+  Expected: 2.0f +/- 9.99999975E-05f
+  But was:  0.0f
+]]></message>
+                  <stack-trace><![CDATA[at Voyage.Tests.Editor.OpenIssueRegressionTests.ReleasedSteeringRecentersAtLowSpeedAndDampsYawWithoutChangingRollOrPitch () [0x000e6] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:62
+]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1148" name="SampleSceneCreatesTheVehicleAfterStreamingStartup" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.SampleSceneCreatesTheVehicleAfterStreamingStartup" methodname="SampleSceneCreatesTheVehicleAfterStreamingStartup" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1911806091" result="Passed" start-time="2026-11-05 23:16:47Z" end-time="2026-11-05 23:16:58Z" duration="11.261690" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <output><![CDATA[VOYAGE_STARTUP_PROFILE frames=1892 medianMs=1.03 p95Ms=7.22 maxMs=694.96 grassPreparePeakMs=18.445 grassMeshSurfacePeakMs=0.000 grassSurfaceBinningPeakMs=0.000 grassGeneratePeakMs=0.000 terrainInstantiatePeakMs=0.308 terrainUnloadPeakMs=0.000 collisionPeakMs=0.061 streamUpdatePeakMs=1.838 lodScanPeakMs=1.833 prefabLoadPeakMs=37.650 tileAwakePeakMs=0.164 grassInitPeakMs=1.540
+VOYAGE_RUNTIME_PROFILE frames=180 medianMs=0.96 p95Ms=1.51 maxMs=3.45 terrainTiles=95 grassFlowTiles=4 interactiveGrassTiles=96 interactiveGrassBuilt=0 grassPrepareAvgMs=0.002 grassPreparePeakMs=0.017 grassMeshSurfacePeakMs=0.000 grassSurfaceBinningPeakMs=0.000 grassGeneratePeakMs=0.000 grassCullAvgMs=0.000 grassCullPeakMs=0.000 grassContactAvgMs=0.073 grassContactPeakMs=0.424 grassInitAvgMs=0.000 grassInitPeakMs=0.000 terrainInstantiateAvgMs=0.000 terrainInstantiatePeakMs=0.000
+]]></output>
+              </test-case>
+              <test-case id="1149" name="SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" methodname="SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="2146500216" result="Failed" label="Error" start-time="2026-11-05 23:16:58Z" end-time="2026-11-05 23:17:06Z" duration="7.703719" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                </properties>
+                <failure>
+                  <message><![CDATA[System.NullReferenceException : Object reference not set to an instance of an object]]></message>
+                  <stack-trace><![CDATA[  at Voyage.Tests.Editor.OpenIssueRegressionTests.Call (System.Object value, System.String name, System.Object[] args) [0x00000] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:34
+  at Voyage.Tests.Editor.OpenIssueRegressionTests+<SampleSceneKeepsGrassInRangeAtAHighDrivingCameraZoom>d__19.MoveNext () [0x004ca] in C:\Users\Ragon\.codex\worktrees\a987\Voyage\Assets\Tests\Editor\OpenIssueRegressionTests.cs:431
+  at UnityEngine.TestTools.TestEnumerator+<Execute>d__7.MoveNext () [0x0003a] in .\Library\PackageCache\com.unity.test-framework@1405238725ab\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs:44 ]]></stack-trace>
+                </failure>
+              </test-case>
+              <test-case id="1137" name="VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" methodname="VehicleCameraLagsOnTurnsAndThenSettlesToTheNewHeading" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="29046353" result="Passed" start-time="2026-11-05 23:17:06Z" end-time="2026-11-05 23:17:06Z" duration="0.006653" asserts="0">
+                <properties />
+              </test-case>
+              <test-case id="1150" name="VehicleTerrainStreamingProfilesContinuousTileCrossings" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleTerrainStreamingProfilesContinuousTileCrossings" methodname="VehicleTerrainStreamingProfilesContinuousTileCrossings" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="1211712058" result="Passed" start-time="2026-11-05 23:17:06Z" end-time="2026-11-05 23:17:51Z" duration="44.485406" asserts="0">
+                <properties>
+                  <property name="_JOINTYPE" value="UnityCombinatorial" />
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[VOYAGE_STREAMING_PROFILE started=True routeTiles=7 crossedBoundaries=2 loadedTiles=107 movementSeconds=35.2 framesOver16Ms=0 medianMs=0.85 p95Ms=1.32 maxMs=14.53 terrainAwakePeakMs=0.109 prefabAssetLoadPeakMs=12.981 instantiatePeakMs=0.031 unloadPeakMs=0.289 collisionPeakMs=0.071 streamUpdatePeakMs=1.095 lodScanPeakMs=1.090 grassInitPeakMs=0.041 grassPreparePeakMs=1.108 grassCullPeakMs=0.000
+]]></output>
+              </test-case>
+              <test-case id="1138" name="VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" fullname="Voyage.Tests.Editor.OpenIssueRegressionTests.VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" methodname="VehicleUsesLowCenterOfMassOnGroundAndRestoresAuthoredCenterInAir" classname="Voyage.Tests.Editor.OpenIssueRegressionTests" runstate="Runnable" seed="742821350" result="Passed" start-time="2026-11-05 23:17:51Z" end-time="2026-11-05 23:17:51Z" duration="0.008367" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+                <output><![CDATA[Saving results to: C:/Users/Ragon/AppData/LocalLow/DefaultCompany/Voyage\TestResults.xml
+]]></output>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

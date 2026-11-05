@@ -174,6 +174,13 @@ namespace Voyage.Lighting
             float moonValue = moonIntensity * Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(0f, .18f, moonDirection.y));
             float ambient = Mathf.Lerp(nightAmbientIntensity, dayAmbientIntensity, day);
             float reflection = Mathf.Lerp(nightReflectionIntensity, dayReflectionIntensity, day);
+            var look = VoyageLookController.Instance;
+            if (look != null)
+            {
+                sunValue *= look.Current.key;
+                moonValue *= look.Current.key;
+                reflection *= look.Current.reflection;
+            }
             if (sun != null) { sun.transform.rotation = Quaternion.LookRotation(-sunDirection, Vector3.up); sun.intensity = sunValue; sun.color = Color.Lerp(daySunColor, sunsetSunColor, horizonGlow); sun.enabled = sunValue > .001f; RenderSettings.sun = sun; }
             if (moon != null) { moon.transform.rotation = Quaternion.LookRotation(-moonDirection, Vector3.up); moon.intensity = moonValue; moon.color = moonColor; moon.enabled = moonValue > .001f; }
             RenderSettings.sun = height > 0f ? sun : moon;
@@ -186,6 +193,30 @@ namespace Voyage.Lighting
             // light is shadowed, even though the material itself is valid.
             RenderSettings.ambientGroundColor = Color.Lerp(
                 new Color(.075f, .055f, .025f), new Color(.28f, .27f, .25f), day);
+            if (look != null)
+            {
+                // Night skylight must retain readable diffuse bounce in Lit materials.
+                // This is an authored environment, shared by terrain and characters,
+                // rather than a brightness floor added inside individual shaders.
+                RenderSettings.ambientSkyColor = Color.Lerp(new Color(.20f,.24f,.30f),daySkyColor,day);
+                RenderSettings.ambientEquatorColor = Color.Lerp(new Color(.17f,.19f,.23f),new Color(.32f,.35f,.39f),day);
+                RenderSettings.ambientGroundColor = Color.Lerp(new Color(.13f,.12f,.105f),new Color(.28f,.27f,.25f),day);
+                // Trilight uses the authored colors directly: scaling only
+                // ambientIntensity does not control all custom shader paths.
+                Color tint = Color.Lerp(Color.white, look.Current.shadow, .22f) * look.Current.ambient;
+                RenderSettings.ambientSkyColor *= tint;
+                RenderSettings.ambientEquatorColor *= tint;
+                RenderSettings.ambientGroundColor *= tint;
+                // Explicitly refresh the fallback probe for runtime-created scenes:
+                // no baked lighting data or asynchronous environment bake is required.
+                var probe = new SphericalHarmonicsL2();
+                probe.AddAmbientLight(RenderSettings.ambientEquatorColor.linear);
+                probe.AddDirectionalLight(Vector3.up,RenderSettings.ambientSkyColor.linear,.5f);
+                probe.AddDirectionalLight(Vector3.down,RenderSettings.ambientGroundColor.linear,.5f);
+                RenderSettings.ambientProbe=probe;
+                if (sun != null) sun.color *= look.Current.lightTint;
+                if (moon != null) moon.color *= look.Current.lightTint;
+            }
             RenderSettings.ambientIntensity = ambient;
             RenderSettings.reflectionIntensity = reflection;
             ApplySky(day, horizonGlow, sunDirection);

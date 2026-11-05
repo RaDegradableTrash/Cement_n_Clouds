@@ -543,10 +543,38 @@ namespace Voyage.Tests.Editor
             var image = new Texture2D(640, 360, TextureFormat.RGB24, false);
             var pressure = new Texture2D(2, 2, TextureFormat.RGBAFloat, false, true);
             RenderTexture previous = RenderTexture.active;
+            var previousAmbientMode = RenderSettings.ambientMode;
+            var previousSky = RenderSettings.ambientSkyColor;
+            var previousEquator = RenderSettings.ambientEquatorColor;
+            var previousGround = RenderSettings.ambientGroundColor;
+            var previousLook = Shader.GetGlobalVector("_VoyageLookShape");
+            var featureStates = new System.Collections.Generic.List<Tuple<object, bool>>();
             try
             {
+                // Full-screen clouds/fog can contribute pixels even with an
+                // empty draw list. This fixture measures the grass draw only.
+                var rendererData = AssetDatabase.LoadAssetAtPath<ScriptableObject>("Assets/Settings/PC_Renderer.asset");
+                var features = (System.Collections.IEnumerable)rendererData.GetType().GetProperty("rendererFeatures").GetValue(rendererData);
+                foreach (var feature in features)
+                {
+                    if (feature == null) continue;
+                    featureStates.Add(Tuple.Create(feature, (bool)feature.GetType().GetProperty("isActive").GetValue(feature)));
+                    Call(feature, "SetActive", false);
+                }
+                // This measures geometry deformation, not the last scene's exposure.
+                // The grass shader no longer invents an ambient brightness floor.
+                RenderSettings.ambientMode = UnityEngine.Rendering.AmbientMode.Trilight;
+                RenderSettings.ambientSkyColor = Color.white;
+                RenderSettings.ambientEquatorColor = Color.white;
+                RenderSettings.ambientGroundColor = Color.white;
+                Shader.SetGlobalVector("_VoyageLookShape", Vector4.zero);
                 Set(patch, "bladesPerRow", 64);
                 var component = host.AddComponent(Find("GrassFlow.GrassFlowRenderer")); Set(component, "patch", patch);
+                // Render only this fixture; an open scene must not contribute
+                // pixels after the test erases every grass instance.
+                int grassLayer = LayerMask.NameToLayer("VoyageGrass");
+                host.layer = grassLayer >= 0 ? grassLayer : 31;
+                camera.cullingMask = 1 << host.layer;
                 camera.clearFlags = CameraClearFlags.SolidColor; camera.backgroundColor = Color.black;
                 camera.transform.SetPositionAndRotation(new Vector3(8, 3, -3), Quaternion.LookRotation(new Vector3(0, -1, 4)));
                 camera.targetTexture = target;
@@ -593,6 +621,12 @@ namespace Voyage.Tests.Editor
                 camera.targetTexture = null; RenderTexture.active = previous;
                 Object.DestroyImmediate(host); Object.DestroyImmediate(cameraObject); Object.DestroyImmediate(target); Object.DestroyImmediate(image);
                 Object.DestroyImmediate(pressure);
+                RenderSettings.ambientMode = previousAmbientMode;
+                RenderSettings.ambientSkyColor = previousSky;
+                RenderSettings.ambientEquatorColor = previousEquator;
+                RenderSettings.ambientGroundColor = previousGround;
+                Shader.SetGlobalVector("_VoyageLookShape", previousLook);
+                foreach (var state in featureStates) Call(state.Item1, "SetActive", state.Item2);
                 Shader.SetGlobalTexture("_VoyageGrassInteraction", null);
                 Shader.SetGlobalTexture("_VoyageGrassPermanentInteraction", null);
                 Shader.SetGlobalVector("_VoyageGrassInteractionWorld", Vector4.zero);

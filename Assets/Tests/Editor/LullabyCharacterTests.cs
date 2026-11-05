@@ -114,7 +114,8 @@ namespace Voyage.Tests.Editor
                 {
                     foreach (var renderer in meshes)
                     {
-                        Assert.That(renderer.sharedMaterial.shader.name, Does.Contain("Universal Render Pipeline"));
+                        Assert.That(renderer.sharedMaterial.shader.name,
+                            Does.Contain("Universal Render Pipeline").Or.EqualTo("Voyage/Character/Layered"));
                         var vertices = renderer.sharedMesh.vertices;
                         var weights = renderer.sharedMesh.boneWeights;
                         var skinMatrices = renderer.bones.Select((bone, i) => bone.localToWorldMatrix * renderer.sharedMesh.bindposes[i]).ToArray();

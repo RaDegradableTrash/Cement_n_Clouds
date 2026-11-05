@@ -210,8 +210,19 @@ namespace Voyage.Tests.Editor
             GameObject occluder = null;
             Material occluderMaterial = null;
             Component lighting = null;
+            var featureStates=new System.Collections.Generic.List<Tuple<object,bool>>();
             try
             {
+                // This test measures the infinitely distant gradient sky, not
+                // world-space volumetric clouds (which correctly have parallax).
+                var renderer=AssetDatabase.LoadAssetAtPath<ScriptableObject>("Assets/Settings/PC_Renderer.asset");
+                var features=(System.Collections.IEnumerable)renderer.GetType().GetProperty("rendererFeatures").GetValue(renderer);
+                foreach(var feature in features)
+                    if(feature!=null && feature.GetType().Name=="VolumetricCloudFeature")
+                    {
+                        bool active=(bool)feature.GetType().GetProperty("isActive").GetValue(feature);
+                        featureStates.Add(Tuple.Create(feature,active)); Call(feature,"SetActive",false);
+                    }
                 root.SetActive(false);
                 lighting = root.AddComponent(GameType("Voyage.Lighting.DayNightSystem"));
                 Set(lighting, "advanceTime", false);
@@ -293,6 +304,7 @@ namespace Voyage.Tests.Editor
             }
             finally
             {
+                foreach(var state in featureStates) Call(state.Item1,"SetActive",state.Item2);
                 camera.targetTexture = null;
                 RenderTexture.active = oldActive;
                 Object.DestroyImmediate(ground);

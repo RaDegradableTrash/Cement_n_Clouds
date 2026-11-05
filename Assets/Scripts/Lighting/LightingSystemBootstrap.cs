@@ -27,6 +27,10 @@ namespace Voyage.Lighting
             for (int i = 0; i < systems.Length; i++)
                 if (systems[i] != null && systems[i].gameObject != root)
                     Object.Destroy(systems[i].gameObject);
+            if (root.GetComponent<VoyageLookController>() == null && Resources.Load<VoyageLookProfile>("Looks/ColdDusk") != null)
+                root.AddComponent<VoyageLookController>();
+            var look=root.GetComponent<VoyageLookController>();
+            if(look!=null) look.EnsureInitialized();
             if (root.GetComponent<DayNightSystem>() == null) root.AddComponent<DayNightSystem>();
             if (root.GetComponent<FogSystem>() == null) root.AddComponent<FogSystem>();
             if (root.GetComponent<CloudLightingBridge>() == null) root.AddComponent<CloudLightingBridge>();

@@ -71,6 +71,9 @@ Shader "Voyage/Terrain/Stylized"
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile _ _SHADOWS_SOFT
             #pragma multi_compile _ _ADDITIONAL_LIGHTS
+            #pragma multi_compile _ _CLUSTER_LIGHT_LOOP
+            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
+            #pragma multi_compile_fragment _ _SHADOWS_SOFT_LOW _SHADOWS_SOFT_MEDIUM _SHADOWS_SOFT_HIGH
             #pragma target 3.5
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
@@ -144,6 +147,23 @@ Shader "Voyage/Terrain/Stylized"
             ENDHLSL
         }
 
+        Pass
+        {
+            Name "DepthNormals"
+            Tags { "LightMode"="DepthNormals" }
+            HLSLPROGRAM
+            #pragma vertex NormalVert
+            #pragma fragment NormalFrag
+            struct NormalAttributes { float3 positionOS:POSITION; float3 normalOS:NORMAL; };
+            struct NormalVaryings { float4 positionCS:SV_POSITION; float3 world:TEXCOORD0; float3 normal:TEXCOORD1; };
+            NormalVaryings NormalVert(NormalAttributes i)
+            {
+                NormalVaryings o; o.world=TransformObjectToWorld(i.positionOS);
+                o.positionCS=TransformWorldToHClip(o.world); o.normal=TransformObjectToWorldNormal(i.normalOS); return o;
+            }
+            half4 NormalFrag(NormalVaryings i):SV_Target { ClipTerrainCoverage(i.positionCS.xy,i.world); return half4(normalize(i.normal),0); }
+            ENDHLSL
+        }
         Pass
         {
             Name "ShadowCaster"
