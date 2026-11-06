@@ -101,7 +101,7 @@ namespace Voyage.Lighting
             // Keep the nearby driving view clear and spread mountain haze over
             // a much longer distance so silhouettes remain readable.
             authoredStart = Mathf.Max(authoredStart, 1200f);
-            authoredEnd = Mathf.Max(authoredEnd, 20000f);
+            authoredEnd = Mathf.Max(authoredEnd, 7500f);
             CurrentStartDistance = Mathf.Lerp(authoredEnd, authoredStart, contribution);
             CurrentEndDistance = Mathf.Lerp(100000f, authoredEnd, contribution);
             bool fogActive = enableFog && contribution > .001f;

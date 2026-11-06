@@ -198,9 +198,9 @@ namespace Voyage.Lighting
                 // Night skylight must retain readable diffuse bounce in Lit materials.
                 // This is an authored environment, shared by terrain and characters,
                 // rather than a brightness floor added inside individual shaders.
-                RenderSettings.ambientSkyColor = Color.Lerp(new Color(.20f,.24f,.30f),daySkyColor,day);
-                RenderSettings.ambientEquatorColor = Color.Lerp(new Color(.17f,.19f,.23f),new Color(.32f,.35f,.39f),day);
-                RenderSettings.ambientGroundColor = Color.Lerp(new Color(.13f,.12f,.105f),new Color(.28f,.27f,.25f),day);
+                RenderSettings.ambientSkyColor = Color.Lerp(new Color(.20f,.24f,.30f),new Color(.30f,.34f,.38f),day);
+                RenderSettings.ambientEquatorColor = Color.Lerp(new Color(.17f,.19f,.23f),new Color(.25f,.28f,.30f),day);
+                RenderSettings.ambientGroundColor = Color.Lerp(new Color(.13f,.12f,.105f),new Color(.16f,.17f,.15f),day);
                 // Trilight uses the authored colors directly: scaling only
                 // ambientIntensity does not control all custom shader paths.
                 Color tint = Color.Lerp(Color.white, look.Current.shadow, .22f) * look.Current.ambient;
@@ -214,7 +214,11 @@ namespace Voyage.Lighting
                 probe.AddDirectionalLight(Vector3.up,RenderSettings.ambientSkyColor.linear,.5f);
                 probe.AddDirectionalLight(Vector3.down,RenderSettings.ambientGroundColor.linear,.5f);
                 RenderSettings.ambientProbe=probe;
-                if (sun != null) sun.color *= look.Current.lightTint;
+                if (sun != null)
+                {
+                    sun.color = Color.Lerp(new Color(.96f,.96f,.91f),sunsetSunColor,horizonGlow)*look.Current.lightTint;
+                    sun.shadowStrength=Mathf.Max(sunShadowStrength,.9f);
+                }
                 if (moon != null) moon.color *= look.Current.lightTint;
             }
             RenderSettings.ambientIntensity = ambient;
@@ -232,6 +236,7 @@ namespace Voyage.Lighting
             // follows the independent day/night environment smoothly instead.
             Color nightGrass = new Color(.46f, .54f, .72f, 1f);
             Color dayGrass = new Color(1f, .94f, .80f, 1f);
+            if(VoyageLookController.Instance!=null) dayGrass=new Color(.94f,.97f,1f);
             Shader.SetGlobalColor(GrassEnvironmentColorId, Color.Lerp(nightGrass, dayGrass, day));
             Shader.SetGlobalFloat(GrassEnvironmentLightId, 1f);
         }
@@ -307,6 +312,8 @@ namespace Voyage.Lighting
         {
             if (runtimeSkybox == null) return;
             Color skyColor = Color.Lerp(nightSkyColor, daySkyColor, day);
+            if(VoyageLookController.Instance!=null)
+                skyColor=Color.Lerp(nightSkyColor,new Color(.23f,.29f,.33f),day);
             // Sunset warms the horizon; the upper sky keeps a cool twilight
             // gradient instead of turning the entire dome orange.
             skyColor = Color.Lerp(skyColor, new Color(.13f, .18f, .30f), sunset * .75f);
@@ -314,6 +321,8 @@ namespace Voyage.Lighting
             groundColor = Color.Lerp(groundColor, new Color(.48f, .22f, .13f), sunset * .35f);
             if (runtimeSkybox.HasProperty("_SkyTint")) runtimeSkybox.SetColor("_SkyTint", skyColor);
             if (runtimeSkybox.HasProperty("_HorizonTint")) runtimeSkybox.SetColor("_HorizonTint", Color.Lerp(Color.Lerp(nightSkyColor, new Color(.24f,.42f,.62f),day),horizonSkyColor,sunset*.65f));
+            if(VoyageLookController.Instance!=null && runtimeSkybox.HasProperty("_HorizonTint"))
+                runtimeSkybox.SetColor("_HorizonTint",Color.Lerp(Color.Lerp(nightSkyColor,new Color(.40f,.45f,.46f),day),new Color(.60f,.39f,.29f),sunset*.5f));
             if (runtimeSkybox.HasProperty("_SunColor")) runtimeSkybox.SetColor("_SunColor",Color.Lerp(new Color(1f,.96f,.82f),new Color(1f,.36f,.16f),sunset));
             if (runtimeSkybox.HasProperty("_GroundColor")) runtimeSkybox.SetColor("_GroundColor", groundColor);
             if (runtimeSkybox.HasProperty("_Exposure")) runtimeSkybox.SetFloat("_Exposure", Mathf.Lerp(.08f, -.25f, day) + sunset * .08f);

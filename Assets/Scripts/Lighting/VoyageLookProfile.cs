@@ -18,7 +18,7 @@ namespace Voyage.Lighting
         [Range(0,1)] public float transition, threshold, rim, bloom, vignette;
         public Color shadow, lightTint, fogTint, filter;
         public static LookSettings Default => new LookSettings {
-            exposure = .2f, saturation = -22, contrast = 8,
+            exposure = -.15f, saturation = -32, contrast = 16,
             ambient = .95f, key = 1.15f, reflection = 1,
             transition = .24f, threshold = .35f, rim = .12f, bloom = .18f, vignette = .15f,
             shadow = new Color(.82f,.86f,.94f), lightTint = Color.white,

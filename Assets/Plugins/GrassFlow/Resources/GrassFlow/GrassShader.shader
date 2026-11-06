@@ -128,8 +128,15 @@ Shader "GrassFlow/Voyage/Grass"
             float t = input.gradient.x;
             float3 rootColor = _MeadowStyle>.5 ? VoyageGroundAlbedo(input.rootWS) : _RootColor.rgb;
             float blend = smoothstep(.16,.85,t);
-            float3 leaf = lerp(rootColor,_MeadowStyle>.5 ? _MeadowLeafData.rgb : _MidColor.rgb,blend);
-            leaf = lerp(leaf,_MeadowStyle>.5 ? _MeadowTipData.rgb : _TipColor.rgb,smoothstep(.65,1,t)*.55);
+            float3 middleColor = _MeadowStyle>.5 ? _MeadowLeafData.rgb : _MidColor.rgb;
+            float3 tipColor = _MeadowStyle>.5 ? _MeadowTipData.rgb : _TipColor.rgb;
+            if(_MeadowStyle>.5)
+            {
+                middleColor=lerp(middleColor,rootColor*float3(1.12,1.15,1.07),.82*_VoyageLookShape.w);
+                tipColor=lerp(tipColor,rootColor*float3(1.30,1.27,1.16),.80*_VoyageLookShape.w);
+            }
+            float3 leaf = lerp(rootColor,middleColor,blend);
+            leaf = lerp(leaf,tipColor,smoothstep(.65,1,t)*.55);
             // Two planar faces form a visible folded blade, with no shiny plastic highlight.
             leaf *= lerp(float3(1,1,1),lerp(.85,1.08,input.gradient.y)*input.tint,blend);
             float3 normal = normalize(input.groundNormal);

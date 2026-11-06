@@ -7,8 +7,12 @@ float4 _VoyageLookShape;
 float4 _VoyageLookShadow;
 float3 VoyageGroundAlbedo(float3 position)
 {
-    float variation = sin(position.x*.035 + sin(position.z*.026))* .035;
-    return float3(.43,.39,.29) * (1+variation);
+    // Shared continuous world-space palette: grass roots and terrain agree at
+    // every LOD, without the old uniform golden multiplier.
+    float variation = sin(position.x*.017 + sin(position.z*.013)*2)*.10
+        + sin(position.z*.047-position.x*.009)*.045;
+    float3 palette=lerp(float3(.43,.39,.29),float3(.235,.255,.235),_VoyageLookShape.w);
+    return palette * (1+variation);
 }
 float3 VoyageSurfaceLight(float3 albedo, float3 position, float3 normal)
 {
@@ -19,7 +23,8 @@ float3 VoyageSurfaceLight(float3 albedo, float3 position, float3 normal)
         normal.y>=0 ? unity_AmbientSky.rgb : unity_AmbientGround.rgb,abs(normal.y));
     ambient = max(ambient,0) * lerp(float3(1,1,1),_VoyageLookShadow.rgb,_VoyageLookShape.w*.35);
     float ndl=dot(normal,key.direction);
-    float diffuse=saturate(ndl*.82+.18);
+    float wrap=lerp(.18,.04,_VoyageLookShape.w);
+    float diffuse=saturate(ndl*(1-wrap)+wrap);
     float band=smoothstep(_VoyageLookShape.x-max(.05,_VoyageLookShape.y),_VoyageLookShape.x+max(.05,_VoyageLookShape.y),ndl);
     diffuse=lerp(diffuse,band*.8+saturate(ndl)*.2,_VoyageLookShape.w*.25);
     float3 light = ambient + key.color * diffuse * key.shadowAttenuation;

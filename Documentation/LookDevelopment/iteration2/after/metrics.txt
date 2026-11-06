@@ -1,0 +1,15 @@
+GPU: NVIDIA GeForce RTX 5070 Laptop GPU
+1920x1080 Editor Play Mode; 120 explicit rendered frames after 30 rendered warmup frames. Synchronized GPU readback included; not standalone FPS.
+time-12 median_ms=13.2019 p95_ms=15.3835 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+driving-12 median_ms=13.5149 p95_ms=20.3806 camera=(-14.00, -17.39, -6.00) rotation=(8.29, 209.05, 0.00)
+time-17.5 median_ms=13.2602 p95_ms=19.1397 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+driving-17.5 median_ms=13.3515 p95_ms=16.4973 camera=(-14.00, -17.39, -6.00) rotation=(8.29, 209.05, 0.00)
+time-22 median_ms=11.1715 p95_ms=18.6016 camera=(-14.00, -12.39, -38.00) rotation=(24.94, 324.46, 0.00)
+driving-22 median_ms=13.2887 p95_ms=15.6181 camera=(-14.00, -17.39, -6.00) rotation=(8.29, 209.05, 0.00)
+vehicle-headlights median_ms=11.3417 p95_ms=13.5206 camera=(-18.37, -12.93, -40.66) rotation=(24.94, 324.46, 0.00)
+vehicle-cabin median_ms=11.9866 p95_ms=13.8235 camera=(-22.28, -18.05, -30.09) rotation=(10.02, 180.00, 0.00)
+Vehicle lights enabled: 11
+NPC bounds=Center: (-30.24, -20.49, -25.22), Extents: (0.81, 1.50, 0.99)
+character-dusk median_ms=11.4584 p95_ms=13.0343 camera=(-30.24, -20.19, -19.97) rotation=(3.27, 180.00, 0.00)
+character-night median_ms=12.0301 p95_ms=13.4661 camera=(-30.24, -20.19, -19.97) rotation=(3.27, 180.00, 0.00)
+character-night-ao-off median_ms=11.0675 p95_ms=12.1976 camera=(-30.24, -20.19, -19.97) rotation=(3.27, 180.00, 0.00)

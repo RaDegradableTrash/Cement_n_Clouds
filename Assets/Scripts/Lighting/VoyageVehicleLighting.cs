@@ -17,6 +17,15 @@ namespace Voyage.Lighting
             foreach(var lamp in GetComponentsInChildren<Light>(true))
             {
                 string fixture=lamp.transform.parent!=null ? lamp.transform.parent.name : "";
+                if(fixture=="BrakeLightL" || fixture=="BrakeLightR" || fixture=="BrakeLightTL" || fixture=="BrakeLightTR")
+                {
+                    // A tail lamp is a nearby accent, not a red floodlight.
+                    // Keep enable/disable ownership with the braking system.
+                    lamp.intensity=4f;
+                    lamp.range=4.5f;
+                    lamp.shadows=LightShadows.None;
+                    continue;
+                }
                 bool primary=fixture=="HeadLightL" || fixture=="HeadLightR" || fixture=="HeadLightFix";
                 bool auxiliary=fixture=="LightL" || fixture=="LightR";
                 if(!primary && !auxiliary) continue;

@@ -108,6 +108,16 @@ namespace Voyage.Tests
                 {
                     clock.SetTime(hour);
                     yield return Sample(camera, label, "time-" + hour.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                    if(DrivingCore.Instance!=null && DrivingCore.Instance.Player!=null)
+                    {
+                        var savedPosition=camera.transform.position;
+                        var savedRotation=camera.transform.rotation;
+                        var carPosition=DrivingCore.Instance.Player.transform.position;
+                        camera.transform.position=carPosition+new Vector3(10,5,18);
+                        camera.transform.LookAt(carPosition+Vector3.up*2);
+                        yield return Sample(camera,label,"driving-"+hour.ToString(System.Globalization.CultureInfo.InvariantCulture));
+                        camera.transform.SetPositionAndRotation(savedPosition,savedRotation);
+                    }
                 }
                 if(label!="before" && DrivingCore.Instance!=null && DrivingCore.Instance.Player!=null)
                 {

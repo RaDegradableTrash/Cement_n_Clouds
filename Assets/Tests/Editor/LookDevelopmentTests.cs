@@ -50,7 +50,7 @@ namespace Voyage.Tests.Editor
             var lamps=new System.Collections.Generic.List<Light>();
             try
             {
-                foreach(var fixture in new[]{"HeadLightL","HeadLightR","HeadLightFix","LightL","LightR","ReadingLightFix"})
+                foreach(var fixture in new[]{"HeadLightL","HeadLightR","HeadLightFix","LightL","LightR","ReadingLightFix","BrakeLightR"})
                 {
                     var parent=new GameObject(fixture);parent.transform.SetParent(root.transform);
                     var child=new GameObject("Spot Light");child.transform.SetParent(parent.transform);
@@ -63,6 +63,8 @@ namespace Voyage.Tests.Editor
                 type.GetMethod("SetHeadlights").Invoke(lighting,new object[]{true});
                 for(int i=0;i<5;i++) Assert.That(lamps[i].enabled,Is.True);
                 Assert.That(lamps[0].shadows,Is.EqualTo(LightShadows.Soft));
+                type.GetMethod("SetHeadlights").Invoke(lighting,new object[]{false});
+                Assert.That(lamps[6].enabled,Is.True,"Headlight toggle must not take ownership of the brake lights");
                 type.GetMethod("Bind").Invoke(lighting,null);
                 Assert.That(((System.Collections.ICollection)type.GetProperty("Headlights").GetValue(lighting)).Count,Is.EqualTo(5),"Rebinding does not duplicate fixtures");
             }

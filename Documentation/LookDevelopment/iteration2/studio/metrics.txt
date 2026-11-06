@@ -1,0 +1,13 @@
+GPU: NVIDIA GeForce RTX 5070 Laptop GPU
+1920x1080 Editor Play Mode; 120 explicit rendered frames after 30 rendered warmup frames. Synchronized GPU readback included; not standalone FPS.
+ColdDusk median_ms=9.0115 p95_ms=9.981 camera=(3.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+ColdDusk-offset median_ms=9.1271 p95_ms=10.4213 camera=(3.23, 102.00, -6.90) rotation=(3.99, 337.66, 0.00)
+WarmInterior median_ms=8.698 p95_ms=9.8044 camera=(33.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+WarmInterior-offset median_ms=12.2858 p95_ms=13.9307 camera=(33.23, 102.00, -6.90) rotation=(3.99, 337.66, 0.00)
+DramaticAnime median_ms=7.9392 p95_ms=8.721 camera=(63.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+DramaticAnime-offset median_ms=7.7764 p95_ms=8.6716 camera=(63.23, 102.00, -6.90) rotation=(3.99, 337.66, 0.00)
+ColdDusk-lamps-off median_ms=8.1031 p95_ms=9.0286 camera=(3.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+ColdDusk-motion median_ms=9.2903 p95_ms=10.5688 camera=(3.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+ColdDusk-presentation-dof median_ms=9.6511 p95_ms=10.6029 camera=(3.00, 102.00, -7.00) rotation=(3.99, 337.66, 0.00)
+Runtime profile priority and fallback checked.
+Scene reload and persistent manual profile checked.
